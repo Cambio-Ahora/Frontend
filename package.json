@@ -1,0 +1,26 @@
+{
+  "name": "Frontend",
+  "version": "1.0.0",
+  "description": "My delightful Nuxt.js project",
+  "author": "Sayrin",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "nuxt": "^2.0.0",
+    "prismic-nuxt": "^0.5.3",
+    "uikit": "^3.2.6"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^8.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+//Fonts
+
+@font-face {
+	font-family: "Larsseit-Regular";
+	src: url("/fonts/Larsseit/Larsseit.woff");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Larsseit-Medium";
+	src: url("/fonts/Larsseit/Larsseit-Medium.woff");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Larsseit-Bold";
+	src: url("/fonts/Larsseit/Larsseit-Bold.woff");
+	font-style: normal;
+	font-weight: normal;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: $heading-font;
+    letter-spacing: -0.1rem;
+    color: $dark-color-accent;
+}
+
+p{
+    font-family: $content-font;
+    letter-spacing: -0.02rem;
+    color: $soft-dark-color-accent;
+    font-size: 1.05rem;
+}
