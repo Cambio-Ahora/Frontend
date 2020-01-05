@@ -25,6 +25,7 @@ export default {
   css: [
     'uikit/dist/css/uikit.css',
     './assets/main.scss',
+    'vue-stripe-menu/dist/vue-stripe-menu.css'
   ],
   /*
   ** Plugins to load before mounting the App

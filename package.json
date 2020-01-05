@@ -15,7 +15,8 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "nuxt": "^2.0.0",
     "prismic-nuxt": "^0.5.3",
-    "uikit": "^3.2.6"
+    "uikit": "^3.2.6",
+    "vue-stripe-menu": "^1.2.3"
   },
   "devDependencies": {
     "node-sass": "^4.13.0",

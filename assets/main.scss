@@ -21,15 +21,50 @@
 	font-weight: normal;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-family: $heading-font;
-    letter-spacing: -0.1rem;
-    color: $dark-color-accent;
+html, body{
+	overflow-x: hidden;
 }
 
-p{
+h1,h2,h3,h4,h5,h6{
+    font-family: $heading-font!important;
+    letter-spacing: -0.1rem;
+	color: $dark-color-accent!important;
+	&.bold{
+		font-family: $heading-bold-font!important;
+	}
+	&.light{
+		color: #fff!important;
+	}
+}
+
+p, li{
     font-family: $content-font;
     letter-spacing: -0.02rem;
     color: $soft-dark-color-accent;
-    font-size: 1.05rem;
+	font-size: 1.05rem;
+	line-height: 2rem;
+	&.content-header{
+		color: $soft-color-accent;
+		font-size: 1.2rem;
+		line-height: 2.4rem;
+	}
+}
+
+a{
+	&.cta-button{
+		background-color: $main-color-accent;
+		color: #fff;
+        font-family: $heading-bold-font;
+        font-size: $action-font-size;
+        letter-spacing: $action-letter-spacing;
+	}
+	&.link-button{
+		color: $main-color-accent;
+        font-family: $heading-font;
+        font-size: $action-font-size;
+	}
+	&:hover{
+		text-decoration: none;
+	}
+	
 }
