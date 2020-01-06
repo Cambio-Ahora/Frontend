@@ -5,16 +5,22 @@
             div(uk-grid, class="uk-flex uk-grid-large uk-flex-middle")
                 div(class="uk-width-3-5@m") 
                     div.uk-container-item-padding-remove-left
-                        img(src="/images/sectionimagecontent@2x.jpg", alt="alt")
+                        img(:src="$prismic.asLink(data.primary.imagen_referencial)", :alt="data.primary.imagen_referencial.alt")
                 div(class="uk-width-2-5@m")
                     div
                         div
-                            h2.uk-heading-small(class="uk-width-medium@m") Tratamientos Psicoterapéuticos 
-                            p(class="uk-width-xlarge@m") A custodial wallet for individuals and businesses, with institutional-grade security, 24/7 account access, instant transactions and total control from the convenience of your mobile device. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            h2.uk-heading-small(class="uk-width-medium@m") {{ $prismic.asText(data.primary.encabezado) }}
+                            p(class="uk-width-xlarge@m")    {{ $prismic.asText(data.primary.contenido) }}
                             a.cta-button.uk-button.uk-button-large Agenda Tu Hora
 
 
 </template>
+
+<script>
+export default {
+    props: ['data']
+}
+</script>
 
 <style lang="scss" scoped>
 

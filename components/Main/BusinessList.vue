@@ -3,26 +3,17 @@
     section.uk-section
         .uk-container
             div.list-business(uk-scrollspy="cls: uk-animation-slide-bottom-small; target: >div>a; delay: 300;", class="uk-child-width-1-6@l uk-text-center uk-child-width-1-3@m uk-child-width-1-2 uk-flex uk-flex-middle", uk-grid)
-                div
+                div(v-for="item in data.items")
                     a
-                        img(src="/images/logos/empresas/a.png", width="150", alt="alt")
-                div
-                    a
-                        img(src="/images/logos/empresas/b.png", width="150", alt="alt")
-                div
-                    a
-                        img(src="/images/logos/empresas/c.png", width="150", alt="alt")
-                div
-                    a
-                        img(src="/images/logos/empresas/d.png", width="150", alt="alt")
-                div
-                    a
-                        img(src="/images/logos/empresas/e.png", width="150", alt="alt")
-                div
-                    a
-                        img(src="/images/logos/empresas/f.png", width="150", alt="alt")
+                        img(:src="$prismic.asLink(item.logo)", width="150", :alt="item.logo.alt")
 
 </template>
+
+<script>
+export default {
+    props: ['data']
+}
+</script>
 
 <style lang="scss" scoped>
 

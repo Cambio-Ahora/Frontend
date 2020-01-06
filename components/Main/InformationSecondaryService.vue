@@ -5,40 +5,34 @@
             div( class="uk-flex uk-flex-middle", uk-grid)
                 div(class="uk-width-2-5@m")
                     div
-                        h2.uk-heading-small(class="uk-width-medium@m") Psicopedagogía a Domicilio
-                        p(class="uk-width-xlarge@m") La psicopedagogía es aquella disciplina que se ocupa de abordar los comportamientos de las personas y los fenómenos psíquicos en el marco educativo. Su misión es lograr mejoras tanto en los métodos didácticos como en los pedagógicos que intervienen en el proceso educativo.
-                        a.cta-button.uk-button.uk-button-large Ver Más Información
+                        h2.uk-heading-small(class="uk-width-medium@m") {{ $prismic.asText(data.primary.encabezado) }}
+                        p(class="uk-width-xlarge@m") {{ $prismic.asText(data.primary.contenido) }}
+                        a.cta-button.uk-button.uk-button-large {{ data.primary.texto_del_boton }}
 
-                        div.uk-margin(class="uk-child-width-1-2@m uk-grid-small", uk-grid)
-                            div
-                                h4.list-title Necesidades Educativas Especiales
+                        div.uk-margin.uk-grid-row-large(class="uk-child-width-1-2@m uk-grid-small", uk-grid)
+                            div(v-for="listItem in data.items")
+                                h4.list-title {{ $prismic.asText(listItem.titulo) }}
                                 ul.uk-list.list-of-items
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Diagnóstico de habilidades
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Déficit intelectual
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Déficit de la atención
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Trastorno específico del aprendizaje​asociado a déficit  intelectual
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Entrenamiento cognitivo​
-                            div
-                                h4.list-title Trastorno específico del aprendizaje
-                                ul.uk-list.list-of-items
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Diagnóstico de habilidades
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Déficit intelectual
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Déficit de la atención
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Trastorno específico del aprendizaje​asociado a déficit  intelectual
-                                    li #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Entrenamiento cognitivo​
+                                    div(v-html="$prismic.asHtml(listItem.listado)")
 
                 div(class="uk-width-3-5@m")
                     .uk-container-item-padding-remove-right
                         div.uk-position-relative.uk-text-center.side-container
                             .uk-position-absolute.container-background
                             .uk-position-relative
-                                img.uk-width-1-2.image-a(src="https://images.unsplash.com/photo-1520642413789-2bd6770d59e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80", alt="alt")
-                                img.uk-width-1-2.image-b(src="https://images.unsplash.com/photo-1520642413789-2bd6770d59e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80", alt="alt")
+                                img.uk-width-1-2.image-a(:src="$prismic.asLink(data.primary.imagen_primaria)", :alt="data.primary.imagen_primaria.alt")
+                                img.uk-width-1-2.image-b(:src="$prismic.asLink(data.primary.imagen_secundaria)", :alt="data.primary.imagen_primaria.alt")
 
         img.points-decorator-b(class="uk-visible@m", src="/images/points.svg", uk-svg, alt="alt")
 
 
 </template>
+
+<script>
+export default {
+    props: ['data']
+}
+</script>
 
 <style lang="scss">
 
@@ -51,7 +45,9 @@
     }
 
     .list-of-items{
-        padding-left: calc(1.5em + 10px);
+        li:nth-child(n+2){
+            margin-top: 20px;
+        }
         span{
             margin-left: -35px;
             color: $main-color-accent;

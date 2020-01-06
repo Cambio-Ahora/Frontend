@@ -6,14 +6,14 @@
                 div
                     div
                         .compensate-margin(class="uk-visible@m")
-                        h1.uk-heading-small.uk-margin-remove ¿Necesitas ayuda psicológica de un especialista?
-                        h2.uk-heading-small.uk-margin-remove.bold Te podemos ayudar.
-                        p.content-header.uk-margin-large-top(class="uk-width-large@m") Trabajamos junto al paciente para lograr un cambio clínico significativo hasta que mejore sus problemas.
+                        h1.uk-heading-small.uk-margin-remove {{ $prismic.asText(data.encabezado_principal) }}
+                        h2.uk-heading-small.uk-margin-remove.bold {{ $prismic.asText(data.encabezado_secundario) }}
+                        p.content-header.uk-margin-large-top(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
                         ContactContainer
             div(class="uk-width-3-5@m")
                 div.uk-container-item-padding-remove-right
                     div
-                        img.uk-width-1-1(src="/images/header-image@2x.png", alt="alt")
+                        img.uk-width-1-1(:src="$prismic.asLink(data.portada)", :alt="data.portada.alt")
 
         img.points-decorator(class="uk-visible@m", src="/images/points.svg", uk-svg, alt="alt")
                         
@@ -23,9 +23,10 @@
 <script>
 import ContactContainer from '~/components/Home/ContactContainer'
 export default {
-  components:{
-    ContactContainer
-  }
+    props: ['data'],
+    components:{
+        ContactContainer
+    }
 }
 </script>
 

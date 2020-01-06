@@ -44,9 +44,16 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     ['prismic-nuxt', {
-      endpoint: 'https://sayrin-website.cdn.prismic.io/api/v2',
+      endpoint: 'https://cambioahorafrontend.cdn.prismic.io/api/v2',
       linkResolver: function(doc, ctx) {
         return '/'
+      },
+      htmlSerializer: function(type, element, content, children) {
+        var Elements = PrismicDOM.RichText.Elements;
+        switch (type) {
+          case Elements.listItem:
+          return '<li><span class="uk-margin-small-right" uk-icon="icon: chevron-right"></span>' + children.join('') + '</li>'
+        }
       }
     }]
   ],
