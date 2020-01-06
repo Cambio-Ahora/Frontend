@@ -9,7 +9,7 @@
                         h1.uk-heading-small.uk-margin-remove.heading-animate-item {{ $prismic.asText(data.encabezado_principal) }}
                         h2.uk-heading-small.uk-margin-remove.bold.heading-animate-item {{ $prismic.asText(data.encabezado_secundario) }}
                         p.content-header.uk-margin-large-top.heading-animate-item(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
-                        ContactContainer.heading-animate-item
+                        ContactContainer(:data="data").heading-animate-item
             div(class="uk-width-3-5@m")
                 div.uk-container-item-padding-remove-right
                     div

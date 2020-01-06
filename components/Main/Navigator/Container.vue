@@ -7,40 +7,16 @@
                     a.uk-logo
                         div.uk-flex-middle.uk-grid-small(uk-grid)
                             div(class="uk-visible@s")
-                                h4.logo Cambio Ahora
+                                h4.logo {{ $prismic.asText(menu.data.display_name) }}
                             div.uk-flex-first
-                                img(width="30", src="/images/logos/logo.svg", alt="alt")
+                                img(width="30", :src="$prismic.asLink(menu.data.logo)", alt="Logo")
                 ul.uk-navbar-nav(class="uk-visible@m")
-                    li 
-                        a Quiénes Somos
-                    li 
-                        a Psicología Clínica
-                        .uk-navbar-dropdown.uk-width-medium
+                    li(v-for="menu in menu.data.nav")
+                        a   {{ $prismic.asText(menu.primary.nombre) }}
+                        .uk-navbar-dropdown.uk-width-medium(v-if="menu.items.length > 0")
                             ul.uk-nav.uk-navbar-dropdown-nav.list-of-items
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Depresión
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Crisis de Pánico
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Transtorno de la ansiedad
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] TRANSTORNO OBSESIVO COMPULSIVO
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] TRAnSTORNO POR ESTRÉS POSTRAUMÁTICO
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] TRANSTORNO BIPOLAR
-                    li
-                        a Psicopedagogía
-                        .uk-navbar-dropdown.uk-width-medium
-                            ul.uk-nav.uk-navbar-dropdown-nav.list-of-items
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Diagnóstico de habilidades
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Diagnóstico de habilidades
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Diagnóstico de habilidades
-                                li
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Diagnóstico de habilidades
+                                li(v-for="submenu in menu.items")
+                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] {{ $prismic.asText(submenu.sub_nav_link_label) }}
             .uk-navbar-right
                 .uk-navbar-item
                     a.cta-button.uk-button(@click="$modal.show('modal-contact')") Agenda Tu Hora
@@ -50,12 +26,17 @@
 
 <script>
 
-
+import { mapState } from 'vuex'
 export default {
     data(){
         return{
             
         }
+    },
+    computed: {
+        ...mapState({
+            menu: state => state.menu.menu,
+        })
     }
 }
 </script>

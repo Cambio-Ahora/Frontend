@@ -4,12 +4,18 @@
             div
                 .uk-inline
                     a.icon-form.uk-form-icon(href="#", uk-icon="icon: pencil")
-                    input.uk-input.uk-form-large(type="text", placeholder="Tu Correo Electrónico")
-                    button.uk-button.uk-button-large Agendar Ahora
+                    input.uk-input.uk-form-large(@click="$modal.show('modal-contact')", type="text", placeholder="Tu Correo Electrónico")
+                    button.uk-button.uk-button-large(type="button", @click="$modal.show('modal-contact')") Agendar Ahora
         .communication-links
-            a.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] +569 4044 4172
-            a.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: mail;")] josepuma@sayrin.cl
+            a.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] {{ data.telefono }}
+            a.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: mail;")] {{ data.email }}
 </template>
+
+<script>
+export default {
+    props: ['data']
+}
+</script>
 
 <style lang="scss">
 
