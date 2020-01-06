@@ -7,7 +7,7 @@
                     div
                         div
                             h3.light.uk-heading-small  Preguntas Frecuentes
-                            p(class="uk-width-large@m")   Our customer support team are available to troubleshoot app errors and provide account recovery assistance.
+                            p(class="uk-width-large@m") Our customer support team are available to troubleshoot app errors and provide account recovery assistance.
                     div
                         div
                             ul.uk-list.uk-list-divider

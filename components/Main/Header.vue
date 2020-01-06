@@ -9,7 +9,6 @@
                         h1.uk-heading-small.uk-margin-remove ¿Necesitas ayuda psicológica de un especialista?
                         h2.uk-heading-small.uk-margin-remove.bold Te podemos ayudar.
                         p.content-header.uk-margin-large-top(class="uk-width-large@m") Trabajamos junto al paciente para lograr un cambio clínico significativo hasta que mejore sus problemas.
-                        ContactContainer
             div(class="uk-width-3-5@m")
                 div.uk-container-item-padding-remove-right
                     div
@@ -19,15 +18,6 @@
                         
 
 </template>
-
-<script>
-import ContactContainer from '~/components/Home/ContactContainer'
-export default {
-  components:{
-    ContactContainer
-  }
-}
-</script>
 
 <style lang="scss">
 

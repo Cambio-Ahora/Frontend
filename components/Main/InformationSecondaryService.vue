@@ -68,9 +68,7 @@
         letter-spacing: -.03rem;
     }
 
-    .side-container{
-        
-    }
+
 
     .points-decorator-b{
         position: absolute;

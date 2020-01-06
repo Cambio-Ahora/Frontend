@@ -43,10 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 
-    .icon{
-        color: $main-color-accent;
-    }
-
+    
     .image-b{
         margin-top: 50%;
         height: 70%;

@@ -9,3 +9,9 @@
                 a.uk-display-inline-block.link-button Conócenos un poco más #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
 
 </template>
+
+<script>
+export default {
+    
+}
+</script>

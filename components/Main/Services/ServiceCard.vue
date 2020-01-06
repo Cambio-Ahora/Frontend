@@ -9,6 +9,7 @@
                     div
                         h4.uk-margin-remove Depresión
                         p.uk-margin-small(class="uk-width-medium@m") We make onboarding new employees ridiculously easy. On day one, they’re ready to go. And retaining them is easier, too, with advanced. 
+                        a.uk-display-inline-block.link-button Conócenos un poco más #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
 
 </template>
 

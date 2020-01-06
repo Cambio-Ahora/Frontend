@@ -3,13 +3,22 @@
     Navigator
     nuxt.main-container
     Navigator.uk-margin-large-bottom
+    ContactModal
 </template>
 
 <script>
-import Navigator from '~/components/Main/Navigator'
+import Navigator from '~/components/Main/Navigator/Container'
+import ContactModal from '~/components/Contact/Modal'
 export default {
   components:{
-    Navigator
+    Navigator,
+    ContactModal
+  },
+  mounted(){
+    
+  },
+  methods: {
+
   }
 }
 </script>
