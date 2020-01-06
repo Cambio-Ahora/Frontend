@@ -6,7 +6,7 @@
                 .uk-navbar-item 
                     a.uk-logo
                         div.uk-flex-middle.uk-grid-small(uk-grid)
-                            div
+                            div(class="uk-visible@s")
                                 h4.logo Cambio Ahora
                             div.uk-flex-first
                                 img(width="30", src="/images/logos/logo.svg", alt="alt")
