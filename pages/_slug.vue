@@ -1,9 +1,8 @@
 <template lang="pug">
     div
         Header(:data="document.data")
-        p {{ document.data }}
-        
-            
+        template(v-for="slice in document.data.body")
+            ServiceCardList(v-if="slice.slice_type == 'servicecardlist'", :data="slice")
         ButtonGroup
 </template>
 
@@ -20,11 +19,11 @@ function getByUID(prismic, uid) {
 export default {
     components: {
         Header,
-        ButtonGroup
+        ButtonGroup,
+        ServiceCardList
     },
     async asyncData({ app, error, params }) {
         let document = await getByUID(app.$prismic, params.slug)
-        console.log(document)
         if (document) {
         return { document }
         } else {

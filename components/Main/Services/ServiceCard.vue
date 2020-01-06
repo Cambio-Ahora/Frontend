@@ -9,7 +9,7 @@
                     div
                         h4.uk-margin-remove {{ data.titulo }} 
                         p.uk-margin-small(class="uk-width-medium@m") {{ $prismic.asText(data.contenido) }}
-                        a.uk-display-inline-block.link-button Conócenos un poco más #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
+                        nuxt-link(:to="$prismic.asLink(data.boton_de_accion)", v-if="data.boton_de_accion.id").uk-display-inline-block.link-button {{ data.texto_del_boton }} #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
 
 </template>
 
