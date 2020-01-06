@@ -1,8 +1,8 @@
 <template lang="pug">
     div
-        Header
-        ServiceCardList
-        BusinessList
+        //-Header
+        //-ServiceCardList
+        //-BusinessList
 </template>
 
 <script>

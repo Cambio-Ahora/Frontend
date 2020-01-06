@@ -52,10 +52,15 @@ export default {
   },
   head () {
     return {
-      title: this.title,
+      title: this.document.data.meta_title,
       meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        { hid: 'description', name: 'description', content: 'My custom description' }
+        { hid: 'description', name: 'description', content: this.document.data.meta_description },
+        {property: 'og:title', content: this.document.data.meta_title},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:description', content: this.document.data.meta_description},
+        {property: 'og:image', content: this.$prismic.asLink(this.document.data.meta_image)},
+        {property: 'twitter:image:src', content: this.$prismic.asLink(this.document.data.meta_image)},
+        {property: 'og:site_name', content: 'Cambio Ahora'}
       ]
     }
   }
