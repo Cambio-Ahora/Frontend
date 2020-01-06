@@ -30,7 +30,7 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: '~/plugins/uikit', ssr: false }, { src: '~/plugins/modal', ssr: false }],
+  plugins: [{ src: '~/plugins/vue-check-view', ssr: false },{ src: '~/plugins/uikit', ssr: false }, { src: '~/plugins/modal', ssr: false }, { src: '~/plugins/onload', ssr: false }],
   /*
   ** Nuxt.js dev-modules
   */

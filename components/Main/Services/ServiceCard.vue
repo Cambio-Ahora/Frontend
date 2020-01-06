@@ -25,4 +25,8 @@ export default {
         color: $main-color-accent;
     }
 
+    .container-content{
+        opacity: 0;
+    }
+
 </style>

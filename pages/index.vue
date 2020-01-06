@@ -38,7 +38,6 @@ export default {
   },
   async asyncData({ app, error }) {
     let document = await getSingle(app.$prismic)
-    console.log(document)
     if (document) {
       return { document }
     } else {
