@@ -21,8 +21,7 @@ export default {
     },
     beforeMount(){
         this.animationTl = new gsap.timeline({
-            paused: true,
-            delay: .1
+            paused: true
         })
     },
     mounted(){
@@ -47,7 +46,7 @@ export default {
                 stagger: {
                     amount: .7, 
                 },
-            }, .7)
+            }, .5)
         },
     }
 }

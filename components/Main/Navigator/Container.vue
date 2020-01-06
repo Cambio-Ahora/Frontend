@@ -1,6 +1,6 @@
 <template lang="pug">
 
-    .uk-container.uk-container-large
+    .uk-container.uk-container-large.main-navigator
         nav.uk-navbar-container.uk-navbar-transparent(uk-navbar)
             .uk-navbar-left
                 .uk-navbar-item 
@@ -43,7 +43,7 @@
                                     a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] Diagnóstico de habilidades
             .uk-navbar-right
                 .uk-navbar-item
-                    a.cta-button.uk-button Agenda Tu Hora
+                    a.cta-button.uk-button(@click="$modal.show('modal-contact')") Agenda Tu Hora
 
 
 </template>
@@ -61,6 +61,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    .main-navigator{
+        position: relative;
+        z-index: 3;
+    }
 
     .list-of-items{
         padding-left: calc(1.5em + 10px);
