@@ -46,6 +46,8 @@ export default {
     ['prismic-nuxt', {
       endpoint: 'https://cambioahorafrontend.cdn.prismic.io/api/v2',
       linkResolver: function(doc, ctx) {
+        if (doc.type === 'pagina') return "/" + doc.uid;
+        if (doc.type === 'servicio') return "/servicios/" + doc.uid;
         return '/'
       },
       htmlSerializer: function(type, element, content, children) {

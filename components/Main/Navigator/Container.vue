@@ -1,22 +1,22 @@
 <template lang="pug">
 
-    .uk-container.uk-container-large.main-navigator
+    .uk-container.uk-container-large.fix-zindex(v-bind:class="{ 'main-navigator': $nuxt.$route.path == '/' }")
         nav.uk-navbar-container.uk-navbar-transparent(uk-navbar)
             .uk-navbar-left
                 .uk-navbar-item 
-                    a.uk-logo
+                    nuxt-link(to="/")
                         div.uk-flex-middle.uk-grid-small(uk-grid)
                             div(class="uk-visible@s")
-                                h4.logo {{ $prismic.asText(menu.data.display_name) }}
+                                h4.logo {{ $prismic.asText(menu.data.display_name) }}   
                             div.uk-flex-first
                                 img(width="30", :src="$prismic.asLink(menu.data.logo)", alt="Logo")
                 ul.uk-navbar-nav(class="uk-visible@m")
                     li(v-for="menu in menu.data.nav")
-                        a   {{ $prismic.asText(menu.primary.nombre) }}
+                        nuxt-link( :to="$prismic.asLink(menu.primary.link)", v-if="menu.primary.link.id" ) {{ $prismic.asText(menu.primary.nombre) }}
                         .uk-navbar-dropdown.uk-width-medium(v-if="menu.items.length > 0")
                             ul.uk-nav.uk-navbar-dropdown-nav.list-of-items
                                 li(v-for="submenu in menu.items")
-                                    a   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] {{ $prismic.asText(submenu.sub_nav_link_label) }}
+                                    nuxt-link( :to="$prismic.asLink(submenu.sub_nav_link)", v-if="submenu.sub_nav_link.id" )   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] {{ $prismic.asText(submenu.sub_nav_link_label) }}
             .uk-navbar-right
                 .uk-navbar-item
                     a.cta-button.uk-button(@click="$modal.show('modal-contact')") Agenda Tu Hora
@@ -43,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 
-    .main-navigator{
+    .fix-zindex{
         position: relative;
         z-index: 3;
     }

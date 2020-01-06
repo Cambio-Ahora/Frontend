@@ -3,13 +3,19 @@
     section
         .uk-container
             section.uk-section
-                h2.uk-heading-small(class="uk-width-large@m") Depresión of clients that I don't know 
-                p(class="uk-width-large@m") Trabajamos junto al paciente para lograr un cambio clínico significativo hasta que mejore sus problemas.
-        img.uk-margin-large-bottom(src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1967&q=80", alt="alt")
+                h2.uk-heading-small(class="uk-width-large@m") {{ $prismic.asText(data.encabezado) }}
+                p(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
+        img.uk-margin-large-bottom(:src="$prismic.asLink(data.portada)", alt="alt")
         img.points-decorator(class="uk-visible@m", src="/images/points-2.svg", alt="alt")
 
 
 </template>
+
+<script>
+export default {
+    props: ['data']
+}
+</script>
 
 <style lang="scss" scoped>
 
