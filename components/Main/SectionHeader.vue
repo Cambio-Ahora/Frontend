@@ -1,17 +1,62 @@
 <template lang="pug">
 
-    section.uk-section
+    section.uk-section(v-view.once="isInView")
         div.uk-container
-            div.uk-text-center(uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .animate-item; delay: 300;")
-                h4.uk-margin-remove.animate-item {{ $prismic.asText(data.primary.encabezado) }}
-                h2.animate-item(class="uk-width-large@m uk-margin-auto uk-margin-remove-top") {{ $prismic.asText(data.primary.titulo_principal) }}
-                p.animate-item(class="uk-width-xlarge@m uk-margin-auto uk-margin-remove-top") {{ $prismic.asText(data.primary.contenido) }}
-                a.animate-item.uk-display-inline-block.link-button Conócenos un poco más #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
+            div.uk-text-center(ref="animateImage")
+                h4.uk-margin-remove.animate-image {{ $prismic.asText(data.primary.encabezado) }}
+                h2.animate-image(class="uk-width-large@m uk-margin-auto uk-margin-remove-top") {{ $prismic.asText(data.primary.titulo_principal) }}
+                p.animate-image(class="uk-width-xlarge@m uk-margin-auto uk-margin-remove-top") {{ $prismic.asText(data.primary.contenido) }}
+                a.animate-image.uk-display-inline-block.link-button Conócenos un poco más #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
 
 </template>
 
 <script>
+import { gsap } from 'gsap'
 export default {
-    props: ['data']
+    props: ['data'],
+    data(){
+        return{
+            animationTl: null,
+        }
+    },
+    beforeMount(){
+        this.animationTl = new gsap.timeline({
+            paused: true,
+            delay: .1
+        })
+    },
+    mounted(){
+        this.mainAnimation()
+    },
+    methods: {
+        isInView(e){
+            this.animationTl.play()
+        },
+        mainAnimation(){
+
+            const animateImages  = this.$refs.animateImage.getElementsByTagName('*')
+            this.animationTl.to(animateImages,{
+                duration: .7,
+                ease: "power2.Out",
+                startAt: {
+                    opacity: 0,
+                    y: '10%'
+                },
+                opacity: 1,
+                y: '0%',
+                stagger: {
+                    amount: .7, 
+                },
+            }, .7)
+        },
+    }
 }
 </script>
+
+<style lang="scss" scoped>
+
+    .animate-image{
+        opacity: 0;
+    }
+
+</style>

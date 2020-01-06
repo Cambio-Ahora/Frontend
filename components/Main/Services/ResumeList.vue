@@ -2,14 +2,14 @@
 
     section.uk-container.uk-container-expand-right.uk-section(v-view.once="isInView")
         div( class="uk-flex uk-flex-middle", uk-grid)
-            div(class="uk-width-3-5@m ")
+            div(class="uk-width-3-5@m ")(ref="contentContainer")
                 div
                     .uk-grid-row-large(uk-grid, class="uk-child-width-1-2@m")
                         ServiceCard(v-for="(item, index) in data.items", :key="'service-card-' + index", :data="item")
                     .uk-text-center.uk-margin-large-top.container-content
                         a.uk-display-inline-block.link-button Conócenos un poco más #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
             div(class="uk-width-2-5@m")
-                .uk-container-item-padding-remove-right
+                .uk-container-item-padding-remove-right(ref="animationContainer")
                     div(uk-grid)
                         .uk-width-2-5
                             .uk-inline.image-parallax-container.image-a
@@ -49,7 +49,7 @@ export default {
     beforeMount(){
         this.animationTl = new gsap.timeline({
             paused: true,
-            delay: .5
+            delay: .3
         })
     },
     mounted(){
@@ -58,10 +58,15 @@ export default {
     methods: {
         isInView(e){
             this.animationTl.play()
-            console.log('Playing animationTl')
+            
         },
         mainAnimation(){
-            this.animationTl.to('.image-parallax-container img',{
+
+            const animateImages  = this.$refs.animationContainer.getElementsByTagName('img')
+            const foregroundContainers = this.$refs.animationContainer.getElementsByClassName('foreground')
+            const contentContainer = this.$refs.contentContainer.getElementsByClassName('container-content')
+            
+            this.animationTl.to(animateImages,{
             duration: .6,
             ease: "power2.Out",
             startAt: {
@@ -74,7 +79,7 @@ export default {
                 },
             }, .6)
 
-            this.animationTl.to('.image-parallax-container .foreground',{
+            this.animationTl.to(foregroundContainers,{
             duration: .6,
             ease: "power2.Out",
             startAt: {
@@ -87,7 +92,7 @@ export default {
                 },
             }, 0)
 
-            this.animationTl.to('.image-parallax-container .foreground',{
+            this.animationTl.to(foregroundContainers,{
             duration: .6,
             ease: "power2.Out",
             startAt: {
@@ -99,7 +104,7 @@ export default {
                 },
             }, .6)
 
-            this.animationTl.to('.container-content',{
+            this.animationTl.to(contentContainer,{
             duration: .6,
             ease: "power4.Out",
             startAt: {
@@ -134,7 +139,7 @@ export default {
             opacity: 0;
         }
         .foreground{
-            background: #182729;
+            background: $main-color-accent;
             opacity: 0;
             transform: translateY(-100%);
         }
