@@ -7,44 +7,15 @@ const routes = () =>
 		.then(api =>
 			api.query([
         Prismic.Predicates.at('document.type', 'pagina')
-      ]
-        , {
-				pageSize: 100
-			}),
-		)
+      ]),
+    )
 		.then(res => {
-			if (res.total_pages > 1) {
-				console.warn('we have more than 100 pages, fix it');
-				process.exit(1);
-			}
 			return [
 				'/',
-				...res.results.map(page => `${page.uid.replace(/_/g, '/')}/`),
-				'404',
+				...res.results.map(page => `${page.uid.replace(/_/g, '/')}/`)
 			];
     });
     
-const services = () =>
-	Prismic.getApi(prismicEndpoint)
-		.then(api =>
-			api.query([
-        Prismic.Predicates.at('document.type', 'servicio')
-      ]
-        , {
-				pageSize: 100
-			}),
-		)
-		.then(res => {
-			if (res.total_pages > 1) {
-				console.warn('we have more than 100 pages, fix it');
-				process.exit(1);
-			}
-			return [
-				'/',
-				...res.results.map(page => `${page.uid.replace(/_/g, '/')}/`),
-				'404',
-			];
-		});
 
 export default {
   mode: 'universal',
@@ -115,8 +86,41 @@ export default {
   },
   generate: {
     fallback: 'app.html',
-    routes,
-    services
+    routes: function() {
+      // Fetch again all the blog posts, but this time generating each post's page
+      const pages = Prismic.getApi(prismicEndpoint).then(api => {
+        return api
+          .query(Prismic.Predicates.at('document.type', 'pagina'))
+          .then(response => {
+            return response.results.map(payload => {
+              return {
+                route: `/${payload.uid}`,
+                payload
+              }
+            })
+          })
+      })
+
+      const services = Prismic.getApi(prismicEndpoint).then(api => {
+        return api
+          .query(Prismic.Predicates.at('document.type', 'servicio'))
+          .then(response => {
+            return response.results.map(payload => {
+              return {
+                route: `/servicios/${payload.uid}`,
+                payload
+              }
+            })
+          })
+      })
+      // Here I return an array of the results of each promise using the spread operator.
+      // It will be passed to each page as the `payload` property of the `context` object,
+      // which is used to generate the markup of the page.
+      return Promise.all([pages, services]).then(values => {
+        return [...values[0], ...values[1]]
+      })
+    }
+
   },
   /*
   ** Axios module configuration
