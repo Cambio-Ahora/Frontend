@@ -35,6 +35,20 @@ export default {
         this.document = document
         })
     },
+    head () {
+    return {
+      title: this.$prismic.asText(this.document.data.encabezado_principal) + ' | Cambio Ahora',
+      meta: [
+        { hid: 'description', name: 'description', content: this.$prismic.asText(this.document.data.descripcion) },
+        {property: 'og:title', content: this.$prismic.asText(this.document.data.encabezado_principa) + ' | Cambio Ahora' },
+        {property: 'og:type', content: 'website'},
+        {property: 'og:description', content: this.$prismic.asText(this.document.data.descripcion)},
+        {property: 'og:image', content: this.$prismic.asLink(this.document.data.portada)},
+        {property: 'twitter:image:src', content: this.$prismic.asLink(this.document.data.portada)},
+        {property: 'og:site_name', content: 'Cambio Ahora'}
+      ]
+    }
+  }
 }
 </script>
 

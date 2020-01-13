@@ -2,7 +2,7 @@
     section.uk-section(v-view.once="isInView")
         .uk-container
             div.uk-grid-row-large(ref="serviceContainer", uk-grid, class="uk-child-width-1-3@m")
-                ServiceCard(v-for="(item, index) in data.items", :key="'service-card' + item", :data="item")
+                ServiceCard(v-for="(item, index) in data.items", :key="'service-card-' + index", :data="item")
 
 </template>
 

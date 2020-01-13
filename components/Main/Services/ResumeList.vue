@@ -7,19 +7,14 @@
                     .uk-grid-row-large(uk-grid, class="uk-child-width-1-2@m")
                         ServiceCard(v-for="(item, index) in data.items", :key="'service-card-' + index", :data="item")
                     .uk-text-center.uk-margin-large-top.container-content
-                        a.uk-display-inline-block.link-button Conócenos un poco más #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
+                        nuxt-link(:to="$prismic.asLink(data.primary.boton_de_accion)", v-if="data.primary.boton_de_accion.id").animate-image.uk-display-inline-block.link-button {{ data.primary.texto_del_boton }} #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
             div(class="uk-width-2-5@m")
                 .uk-container-item-padding-remove-right(ref="animationContainer")
                     div(uk-grid)
-                        .uk-width-2-5
-                            .uk-inline.image-parallax-container.image-a
-                                img.uk-width-1-1(:src="$prismic.asLink(data.primary.imagen_secundaria)", :alt="data.primary.imagen_secundaria.alt")
+                        .uk-width-1-1
+                            .uk-inline.image-parallax-container.uk-width-1-1
+                                img.uk-width-1-1(:src="$prismic.asLink(data.primary.imagen_principal)", :alt="data.primary.imagen_principal.alt")
                                 .uk-position-cover.foreground
-                        .uk-width-3-5
-                            div
-                                .uk-inline.image-parallax-container.image-b
-                                    img.uk-width-1-1(:src="$prismic.asLink(data.primary.imagen_principal)", :alt="data.primary.imagen_principal.alt")
-                                    .uk-position-cover.foreground
 
                     
 

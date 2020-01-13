@@ -3,17 +3,20 @@
     Navigator
     div
       nuxt.main-container
+    Footer
     div
       ContactModal
 </template>
 
 <script>
 import Navigator from '~/components/Main/Navigator/Container'
+import Footer from '~/components/Main/Footer'
 import ContactModal from '~/components/Contact/Modal'
 export default {
   components:{
     Navigator,
-    ContactModal
+    ContactModal,
+    Footer
   },
   mounted(){
     

@@ -1,7 +1,7 @@
 {
-  "name": "Frontend",
+  "name": "CambioAhora",
   "version": "1.0.0",
-  "description": "My delightful Nuxt.js project",
+  "description": "¿Necesitas ayuda psicológica de un especialista?. Te podemos ayudar. Trabajamos junto al paciente para lograr un cambio clínico significativo hasta que mejore sus problemas.",
   "author": "Sayrin",
   "private": true,
   "scripts": {

@@ -1,12 +1,12 @@
 <template lang="pug">
 
-    section
-        .uk-container
-            section.uk-section
-                h2.uk-heading-small(class="uk-width-large@m") {{ $prismic.asText(data.encabezado) }}
-                p(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
-        img.uk-margin-large-bottom(:src="$prismic.asLink(data.portada)", alt="alt")
-        img.points-decorator(class="uk-visible@m", src="/images/points-2.svg", alt="alt")
+    section.uk-section.uk-background-cover.fix-position.uk-position-relative(uk-img, :data-src="$prismic.asLink(data.portada)")
+        .overlay-gradient.uk-position-cover
+        .uk-container.uk-section.uk-position-relative
+            .uk-text-center
+                h2.uk-heading-small.uk-margin-auto(class="uk-width-large@m") {{ $prismic.asText(data.encabezado) }}
+                p.uk-margin-auto.content-header(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
+        
 
 
 </template>
@@ -19,28 +19,17 @@ export default {
 
 <style lang="scss" scoped>
 
-    .points-decorator{
-        position: absolute;
-        transform: translate(-50%,-50%);
-        top: 25%;
-        left: 5%;
-        transition: all 200ms ease-in-out;
+    .overlay-gradient{
+        background-color: rgba($background-color-accent, 0.89);
     }
 
-     
+    @media (max-width: 960px) {
 
-    @media(max-width: 1600px){
-        .points-decorator{
-            left: 0%; 
+        .fix-position{
+        margin-top: -130px;
         }
-    }
 
-    @media(max-width: 1400px){
-        .points-decorator{
-            width: 120px;
-            left: -1%;
-            top: 25%; 
-        }
     }
+  
 
 </style>

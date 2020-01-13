@@ -8,8 +8,9 @@
                         h1.uk-heading-small.uk-margin-remove ¿Necesitas ayuda psicológica de un especialista?
                         h2.uk-heading-small.uk-margin-remove.bold Agenda tu hora.
                         .communication-links.uk-margin-top
-                            a.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] +569 4044 4172
-                            a.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: mail;")] josepuma@sayrin.cl
+                            a.uk-padding-small.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] +569 8439 2853
+                            a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Domeyko 1835 - Metro Toesca
+                            a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Monseñor Félix Cabrera 14, Of. 43 - Metro Pedro de Valdivia
                 div
                     div.uk-section.uk-container.background-modal
                         form(class="uk-form")

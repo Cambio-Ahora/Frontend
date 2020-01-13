@@ -7,8 +7,9 @@
                     input.uk-input.uk-form-large(@click="$modal.show('modal-contact')", type="text", placeholder="Tu Correo Electrónico")
                     button.uk-button.uk-button-large(type="button", @click="$modal.show('modal-contact')") Agendar Ahora
         .communication-links
-            a.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] {{ data.telefono }}
-            a.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: mail;")] {{ data.email }}
+            a.uk-padding-small.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] {{ data.telefono }}
+            a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] {{ data.direccion_a }}
+            a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] {{ data.direccion_b }}
 </template>
 
 <script>

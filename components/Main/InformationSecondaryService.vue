@@ -19,12 +19,9 @@
                     .uk-container-item-padding-remove-right
                         div.uk-position-relative.uk-text-center.side-container
                             .uk-position-absolute.container-background
-                            .uk-position-relative(ref="imageContainer")
-                                .uk-inline.image-parallax-container.uk-width-1-2.image-a
+                            .uk-position-relative.padding-content(ref="imageContainer")
+                                .uk-inline.image-parallax-container.uk-width-1-1
                                     img(:src="$prismic.asLink(data.primary.imagen_primaria)", :alt="data.primary.imagen_primaria.alt")
-                                    .uk-position-cover.foreground
-                                .uk-inline.image-parallax-container.uk-width-1-2.image-b
-                                    img(:src="$prismic.asLink(data.primary.imagen_secundaria)", :alt="data.primary.imagen_primaria.alt")
                                     .uk-position-cover.foreground
 
         img.points-decorator-b(class="uk-visible@m", src="/images/points.svg", uk-svg, alt="alt")
@@ -141,6 +138,10 @@ export default {
         height: 100%;
         right: 0;
         top: 0;
+    }
+
+    .padding-content{
+        padding: 20px 0;
     }
 
     .list-of-items{

@@ -1,6 +1,6 @@
 <template lang="pug">
 
-    section.uk-section(v-view.once="isInView")
+    section.uk-section(v-view.once="isInView", :style="{ 'background-color' : data.primary.color_de_fondo }")
         div(class="uk-container uk-container-expand-left")
             div(uk-grid, class="uk-flex uk-grid-large uk-flex-middle")
                 div(class="uk-width-3-5@m") 
@@ -13,7 +13,7 @@
                         div.animate-content(ref="animateContent")
                             h2.uk-heading-small(class="uk-width-medium@m") {{ $prismic.asText(data.primary.encabezado) }}
                             p(class="uk-width-xlarge@m")    {{ $prismic.asText(data.primary.contenido) }}
-                            a.cta-button.uk-button.uk-button-large Agenda Tu Hora
+                            a.cta-button.uk-button.uk-button-large(@click="$modal.show('modal-contact')") Agenda Tu Hora
 
 
 </template>

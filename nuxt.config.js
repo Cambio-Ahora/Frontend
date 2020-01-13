@@ -5,7 +5,11 @@ const prismicEndpoint = 'https://cambioahorafrontend.cdn.prismic.io/api/v2';
 const routes = () =>
 	Prismic.getApi(prismicEndpoint)
 		.then(api =>
-			api.query(Prismic.Predicates.at('document.type', 'pagina'), {
+			api.query([
+        Prismic.Predicates.at('document.type', 'pagina'),
+        Prismic.Predicates.at('document.type', 'servicio'),
+      ]
+        , {
 				pageSize: 100
 			}),
 		)
@@ -34,13 +38,13 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', href: '/favicon.png' }
     ]
   },
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#4B56F1' },
   /*
   ** Global CSS
   */
@@ -77,6 +81,8 @@ export default {
         switch (type) {
           case Elements.listItem:
           return '<li><span class="uk-margin-small-right" uk-icon="icon: chevron-right"></span>' + children.join('') + '</li>'
+          case Elements.image:
+            return '<div class="uk-text-center"><img  src="' + element.url + '" alt="' + element.alt + '"></div>';
         }
       }
     }]
