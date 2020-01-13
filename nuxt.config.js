@@ -6,8 +6,29 @@ const routes = () =>
 	Prismic.getApi(prismicEndpoint)
 		.then(api =>
 			api.query([
-        Prismic.Predicates.at('document.type', 'pagina'),
-        Prismic.Predicates.at('document.type', 'servicio'),
+        Prismic.Predicates.at('document.type', 'pagina')
+      ]
+        , {
+				pageSize: 100
+			}),
+		)
+		.then(res => {
+			if (res.total_pages > 1) {
+				console.warn('we have more than 100 pages, fix it');
+				process.exit(1);
+			}
+			return [
+				'/',
+				...res.results.map(page => `${page.uid.replace(/_/g, '/')}/`),
+				'404',
+			];
+    });
+    
+const services = () =>
+	Prismic.getApi(prismicEndpoint)
+		.then(api =>
+			api.query([
+        Prismic.Predicates.at('document.type', 'servicio')
       ]
         , {
 				pageSize: 100
@@ -95,6 +116,7 @@ export default {
   generate: {
     fallback: 'app.html',
     routes,
+    services
   },
   /*
   ** Axios module configuration
