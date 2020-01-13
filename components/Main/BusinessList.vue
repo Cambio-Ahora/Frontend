@@ -58,19 +58,6 @@ export default {
             a{
                 display: inline-block;
                 opacity: 0;
-                img{
-                    filter: gray; 
-                    -webkit-filter: grayscale(1); 
-                    filter: grayscale(1);
-                    opacity: 0.5;
-                    transition: all 200ms ease-in-out;
-                    &:hover{
-                        opacity: 1;
-                        filter: grayscale(0);
-                        -webkit-filter: grayscale(0); 
-                        filter: grayscale(0%);
-                    }
-                }
             }
         }
     }

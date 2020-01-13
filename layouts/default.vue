@@ -1,9 +1,10 @@
 <template lang="pug">
   div
     Navigator
-    nuxt.main-container
-    Navigator.uk-margin-large-bottom
-    ContactModal
+    div
+      nuxt.main-container
+    div
+      ContactModal
 </template>
 
 <script>
@@ -23,7 +24,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   .main-container{
     margin-top: -80px;

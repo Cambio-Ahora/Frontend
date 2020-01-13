@@ -1,21 +1,21 @@
 <template lang="pug">
     
-    div(class="uk-container uk-container-expand-right")
-        div(uk-grid, class="uk-grid-collapse uk-flex uk-flex-middle")
-            div(class="uk-width-2-5@m") 
-                div
-                    div(ref="contentAnimate")
-                        .compensate-margin(class="uk-visible@m")
-                        h1.uk-heading-small.uk-margin-remove.heading-animate-item {{ $prismic.asText(data.encabezado_principal) }}
-                        h2.uk-heading-small.uk-margin-remove.bold.heading-animate-item {{ $prismic.asText(data.encabezado_secundario) }}
-                        p.content-header.uk-margin-large-top.heading-animate-item(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
-                        ContactContainer(:data="data").heading-animate-item
-            div(class="uk-width-3-5@m")
-                div.uk-container-item-padding-remove-right
+        div(class="uk-container uk-container-expand-right")
+            div(uk-grid, class="uk-grid-collapse uk-flex uk-flex-middle")
+                div(class="uk-width-2-5@m") 
                     div
-                        img.uk-width-1-1.heading-animate-item(ref="headingImage", :src="$prismic.asLink(data.portada)", :alt="data.portada.alt")
+                        div(ref="contentAnimate")
+                            .compensate-margin(class="uk-visible@m")
+                            h1.uk-heading-small.uk-margin-remove.heading-animate-item {{ $prismic.asText(data.encabezado_principal) }}
+                            h2.uk-heading-small.uk-margin-remove.bold.heading-animate-item {{ $prismic.asText(data.encabezado_secundario) }}
+                            p.content-header.uk-margin-large-top.heading-animate-item(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
+                            ContactContainer(:data="data").heading-animate-item
+                div(class="uk-width-3-5@m")
+                    div.uk-container-item-padding-remove-right
+                        div
+                            img.uk-width-1-1.heading-animate-item(ref="headingImage", :src="$prismic.asLink(data.portada)", :alt="data.portada.alt")
 
-        img.points-decorator(ref="decorator", class="uk-visible@m", src="/images/points.svg", uk-svg, alt="alt")
+            img.points-decorator(ref="decorator", class="uk-visible@m", src="/images/points.svg", uk-svg, alt="alt")
                         
 
 </template>
