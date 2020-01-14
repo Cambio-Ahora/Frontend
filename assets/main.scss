@@ -61,6 +61,9 @@ a{
         font-size: $action-font-size;
         letter-spacing: $action-letter-spacing;
 	}
+	&.secondary{
+		background-color: $dark-color-accent!important;
+	}
 	&.link-button{
 		color: $main-color-accent;
         font-family: $heading-font;

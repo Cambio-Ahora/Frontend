@@ -2,19 +2,40 @@ var Prismic = require('prismic-javascript');
 const prismicEndpoint = 'https://cambioahorafrontend.cdn.prismic.io/api/v2';
 
 // TODO: Factor in Page Size > 100
-const routes = () =>
-	Prismic.getApi(prismicEndpoint)
-		.then(api =>
-			api.query([
-        Prismic.Predicates.at('document.type', 'pagina')
-      ]),
-    )
-		.then(res => {
-			return [
-				'/',
-				...res.results.map(page => `${page.uid.replace(/_/g, '/')}/`)
-			];
-    });
+function generateRoutes(){
+// Fetch again all the blog posts, but this time generating each post's page
+const pages = Prismic.getApi(prismicEndpoint).then(api => {
+  return api
+    .query(Prismic.Predicates.at('document.type', 'pagina'))
+    .then(response => {
+      return response.results.map(payload => {
+        return {
+          route: `/${payload.uid}`,
+          payload
+        }
+      })
+    })
+})
+
+const services = Prismic.getApi(prismicEndpoint).then(api => {
+  return api
+    .query(Prismic.Predicates.at('document.type', 'servicio'))
+    .then(response => {
+      return response.results.map(payload => {
+        return {
+          route: `/servicios/${payload.uid}`,
+          payload
+        }
+      })
+    })
+})
+// Here I return an array of the results of each promise using the spread operator.
+// It will be passed to each page as the `payload` property of the `context` object,
+// which is used to generate the markup of the page.
+return Promise.all([pages, services]).then(values => {
+  return [...values[0], ...values[1]]
+})
+}
     
 
 export default {
@@ -61,6 +82,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    '@nuxtjs/sitemap',
     ['prismic-nuxt', {
       endpoint: 'https://cambioahorafrontend.cdn.prismic.io/api/v2',
       linkResolver: function(doc, ctx) {
@@ -79,6 +101,10 @@ export default {
       }
     }]
   ],
+  sitemap: {
+    hostname: 'https://cambioahora.cl',
+    routes: generateRoutes
+  },
   styleResources: {
     scss: [
       './assets/variables.scss',
@@ -86,40 +112,7 @@ export default {
   },
   generate: {
     fallback: 'app.html',
-    routes: function() {
-      // Fetch again all the blog posts, but this time generating each post's page
-      const pages = Prismic.getApi(prismicEndpoint).then(api => {
-        return api
-          .query(Prismic.Predicates.at('document.type', 'pagina'))
-          .then(response => {
-            return response.results.map(payload => {
-              return {
-                route: `/${payload.uid}`,
-                payload
-              }
-            })
-          })
-      })
-
-      const services = Prismic.getApi(prismicEndpoint).then(api => {
-        return api
-          .query(Prismic.Predicates.at('document.type', 'servicio'))
-          .then(response => {
-            return response.results.map(payload => {
-              return {
-                route: `/servicios/${payload.uid}`,
-                payload
-              }
-            })
-          })
-      })
-      // Here I return an array of the results of each promise using the spread operator.
-      // It will be passed to each page as the `payload` property of the `context` object,
-      // which is used to generate the markup of the page.
-      return Promise.all([pages, services]).then(values => {
-        return [...values[0], ...values[1]]
-      })
-    }
+    routes: generateRoutes
 
   },
   /*

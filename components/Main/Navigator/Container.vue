@@ -11,7 +11,7 @@
                                             h4.logo {{ $prismic.asText(menu.data.display_name) }}   
                                         div.uk-flex-first
                                             img(width="30", :src="$prismic.asLink(menu.data.logo)", alt="Logo")
-                            ul.uk-navbar-nav(class="uk-visible@m")
+                            ul.uk-navbar-nav(class="uk-visible@l")
                                 li(v-for="menu in menu.data.nav")
                                     nuxt-link( :to="$prismic.asLink(menu.primary.link)", v-if="menu.primary.link.id" ) {{ $prismic.asText(menu.primary.nombre) }}
                                     .uk-navbar-dropdown.uk-width-medium(v-if="menu.items.length > 0")
@@ -20,7 +20,9 @@
                                                 nuxt-link( :to="$prismic.asLink(submenu.sub_nav_link)", v-if="submenu.sub_nav_link.id" )   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] {{ $prismic.asText(submenu.sub_nav_link_label) }}
                         .uk-navbar-right
                             .uk-navbar-item
-                                a.cta-button.uk-button(@click="$modal.show('modal-contact')") Agenda Tu Hora
+                                a.cta-button.secondary.uk-button(href="tel:+56984392853") #[span(uk-icon="icon: receiver;") ]#[span(class="uk-visible@s") +569 8439 2853]
+                            .uk-navbar-item
+                                a.cta-button.uk-button(@click="$modal.show('modal-contact')") Agendar #[span(class="uk-visible@s") Tu Hora]
 
 
 </template>
