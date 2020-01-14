@@ -53,6 +53,14 @@ p, li{
 	}
 }
 
+strong{
+	&.hl-text{
+		color: $dark-color-accent;
+		font-family: $heading-font;
+		font-weight: normal;
+	}
+}
+
 a{
 	&.cta-button{
 		background-color: $main-color-accent;
@@ -77,4 +85,10 @@ a{
 
 .show-navigator{
 	opacity: 1;
+}
+
+@media(max-width: 640px){
+	.fix-padding-small-link{
+		padding: 0px 10px;
+	}
 }

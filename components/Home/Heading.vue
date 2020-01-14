@@ -4,7 +4,7 @@
             div(uk-grid, class="uk-grid-collapse uk-flex uk-flex-middle")
                 div(class="uk-width-2-5@m") 
                     div
-                        div(ref="contentAnimate", class="uk-text-center uk-text-left@s")
+                        div(ref="contentAnimate", class="uk-text-center uk-text-left@m")
                             .compensate-margin(class="uk-visible@m")
                             h1.uk-heading-small.uk-margin-remove.heading-animate-item {{ $prismic.asText(data.encabezado_principal) }}
                             h2.uk-heading-small.uk-margin-remove.bold.heading-animate-item {{ $prismic.asText(data.encabezado_secundario) }}

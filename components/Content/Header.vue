@@ -4,8 +4,10 @@
         .overlay-gradient.uk-position-cover
         .uk-container.uk-section.uk-position-relative
             .uk-text-center
-                h2.uk-heading-small.uk-margin-auto(class="uk-width-large@m") {{ $prismic.asText(data.encabezado) }}
-                p.uk-margin-auto.content-header(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
+                .fix-margin(class="uk-hidden@s")
+                h1.uk-heading-small.uk-margin-auto(class="uk-width-4-5@m") {{ $prismic.asText(data.encabezado) }}
+                div.uk-margin-auto(class="uk-width-large@m")
+                    p.content-header.uk-margin-remove {{ $prismic.asText(data.descripcion) }}
         
 
 
@@ -21,6 +23,11 @@ export default {
 
     .overlay-gradient{
         background-color: rgba($background-color-accent, 0.89);
+        background: linear-gradient(rgba(255,255,255, 0.8) 30%, rgba(255,255,255, 9) 95%, rgba(255,255,255, 1) 98%);
+    }
+
+    .fix-margin{
+        height: 20px;
     }
 
     @media (max-width: 960px) {

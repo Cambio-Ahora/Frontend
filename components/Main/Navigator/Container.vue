@@ -20,9 +20,29 @@
                                                 nuxt-link( :to="$prismic.asLink(submenu.sub_nav_link)", v-if="submenu.sub_nav_link.id" )   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] {{ $prismic.asText(submenu.sub_nav_link_label) }}
                         .uk-navbar-right
                             .uk-navbar-item
-                                a.cta-button.secondary.uk-button(href="tel:+56984392853") #[span(uk-icon="icon: receiver;") ]#[span(class="uk-visible@s") +569 8439 2853]
+                                a.cta-button.secondary.fix-padding-small-link.uk-button(href="tel:+56984392853") #[span(uk-icon="icon: receiver;") ]#[span(class="uk-visible@s") +569 8439 2853]
                             .uk-navbar-item
-                                a.cta-button.uk-button(@click="$modal.show('modal-contact')") Agendar #[span(class="uk-visible@s") Tu Hora]
+                                a.cta-button.uk-button.fix-padding-small-link(@click="$modal.show('modal-contact')") Agendar #[span(class="uk-visible@s") Tu Hora]
+                            .uk-navbar-item(class="uk-hidden@l")
+                                a(uk-toggle="target: #offcanvas-nav", uk-navbar-toggle-icon )
+
+            div#offcanvas-nav(uk-offcanvas="overlay: true")
+                .uk-offcanvas-bar.navbar-offcanvas
+                    ul.uk-nav.uk-nav-default.uk-margin-bottom
+                        li
+                            nuxt-link(to="/")
+                                div.uk-flex-middle.uk-grid-small(uk-grid)
+                                    div(class="uk-visible@s")
+                                        h4.logo {{ $prismic.asText(menu.data.display_name) }}   
+                                    div.uk-flex-first
+                                        img(width="30", :src="$prismic.asLink(menu.data.logo)", alt="Logo")
+                    ul.uk-nav.uk-nav-default
+                        li.uk-parent(v-for="menu in menu.data.nav")
+                            nuxt-link( :to="$prismic.asLink(menu.primary.link)", v-if="menu.primary.link.id" ) {{ $prismic.asText(menu.primary.nombre) }}  
+                            ul.uk-nav-sub
+                                li(v-for="submenu in menu.items")
+                                    nuxt-link( :to="$prismic.asLink(submenu.sub_nav_link)", v-if="submenu.sub_nav_link.id" )   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] {{ $prismic.asText(submenu.sub_nav_link_label) }}
+                    
 
 
 </template>
@@ -45,6 +65,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    .navbar-offcanvas{
+        ul{
+            li{
+                a{
+                    color: $dark-color-accent;
+                    font-family: $heading-bold-font;
+                    font-size: $action-font-size;
+                    letter-spacing: $action-letter-spacing;
+                    text-transform: uppercase;
+                    &:hover{
+                        color: $main-color-accent;
+                    }
+                    &.nuxt-link-exact-active{
+                        color: $main-color-accent;
+                        
+                    }
+                }
+            }
+
+            &.uk-nav-sub{
+                li{
+                    a{
+                        color: $soft-dark-color-accent;
+                        font-size: .7rem;
+                        letter-spacing: 0;
+                        &:hover{
+                            color: $main-color-accent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .uk-offcanvas-bar{
+        background-color: $background-color-accent;
+    }
 
     .fix-zindex{
         position: relative;
@@ -70,6 +128,14 @@ export default {
                     font-family: $heading-bold-font;
                     font-size: $action-font-size;
                     letter-spacing: $action-letter-spacing;
+                    transition: all 200ms ease-in-out;
+                    &:hover{
+                        color: $main-color-accent;
+                    }
+                    &.nuxt-link-exact-active{
+                        color: $main-color-accent;
+                        
+                    }
                 }
             }
         }

@@ -93,8 +93,16 @@ export default {
       htmlSerializer: function(type, element, content, children) {
         var Elements = PrismicDOM.RichText.Elements;
         switch (type) {
+          case Elements.heading1: return `<h1 class="uk-text-break">${children.join('')}</h1>`;
+          case Elements.heading2: return `<h2 class="uk-text-break">${children.join('')}</h2>`;
+          case Elements.heading3: return `<h3 class="uk-text-break">${children.join('')}</h3>`;
+          case Elements.heading4: return `<h4 class="uk-text-break">${children.join('')}</h4>`;
+          case Elements.heading5: return `<h5 class="uk-text-break">${children.join('')}</h5>`;
+          case Elements.heading6: return `<h6 class="uk-text-break">${children.join('')}</h6>`;
+          case Elements.strong: return `<strong class="hl-text">${children.join('')}</strong>`;
           case Elements.listItem:
           return '<li><span class="uk-margin-small-right" uk-icon="icon: chevron-right"></span>' + children.join('') + '</li>'
+          case Elements.list: return `<ul class="uk-list">${children.join('')}</ul>`;
           case Elements.image:
             return '<div class="uk-text-center"><img  src="' + element.url + '" alt="' + element.alt + '"></div>';
         }

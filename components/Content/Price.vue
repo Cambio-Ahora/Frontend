@@ -5,14 +5,20 @@
             .uk-margin-auto.price-container.uk-card.uk-card-body(class="uk-width-large@s")
                 div
                     h3 Valores
-                    p.content La evaluación psicológica tiene un valor de #[span.hl-bold ${{ data.primary.precio_de_evaluacion_psicologica }}] y se realiza en una sesión de una hora. 
-                    p.content El valor de cada sesión es de #[span.hl-bold ${{ data.primary.precio_por_sesion }}]
+                    p.content La evaluación tiene un valor de #[span.hl-bold ${{ data.primary.precio_de_evaluacion_psicologica | currency }}] y se realiza en una sesión de una hora. 
+                    p.content El valor de cada sesión es de #[span.hl-bold ${{ data.primary.precio_por_sesion | currency }}]
 
 </template>
 
 <script>
 export default {
-    props: ['data']
+    props: ['data'],
+    filters: {
+        currency(value){
+            let val = (value/1).toFixed(0).replace('.', ',')
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        }
+    }
 }
 </script>
 
