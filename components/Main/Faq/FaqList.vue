@@ -1,6 +1,6 @@
 <template lang="pug">
 
-    .uk-section(v-view.once="isInView")
+    div(v-view.once="isInView")
         .uk-section-large.main-container
             .uk-container
                 div(uk-grid, class="uk-child-width-1-2@m", ref="animateContent")

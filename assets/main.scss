@@ -61,6 +61,10 @@ strong{
 	}
 }
 
+em{
+	color: $main-color-accent;
+}
+
 a{
 	&.cta-button{
 		background-color: $main-color-accent;

@@ -1,19 +1,23 @@
 <template lang="pug">
 
-    div
-        .uk-container.uk-container-large
-            hr.uk-hr
+    div.footer-container
         .uk-container.uk-container-large.uk-section.uk-section-small
                 
                 nav
                     div(class="uk-child-width-expand@s", uk-grid)
-                        div
+                        //--div
                             nuxt-link(to="/")
                                 div.uk-flex-middle.uk-grid-small(uk-grid)
                                     div(class="uk-visible@s")
                                         h4.logo {{ $prismic.asText(menu.data.display_name) }}   
                                     div.uk-flex-first
-                                        img(width="30", :src="$prismic.asLink(menu.data.logo)", alt="Logo")
+                                        img(uk-svg, class="uk-light uk-logo", width="30", :src="$prismic.asLink(menu.data.logo)", alt="Logo")
+                        div
+                            div.social-network-container
+                                div
+                                    p.title Redes Sociales
+                                    div
+                                        a.uk-margin-small-right.uk-light(v-for="social in menu.data.redes_sociales", :href="social.link.url", target="_blank", :uk-icon="'icon:' + social.icono")
                         div(v-for="menu in menu.data.nav")
                             div.uk-navbar-nav
                                 div
@@ -44,28 +48,45 @@ export default {
 
 <style lang="scss">
 
+    .footer-container{
+        background-color: $main-color-accent;
+        .logo{
+            color: #fff!important;
+        }
+        .social-network-container{
+            .title{
+                text-transform: uppercase;
+                color: #fff!important;
+                        font-family: $heading-bold-font;
+                        font-size: $action-font-size;
+                        letter-spacing: $action-letter-spacing;
+            }
+        }
+        .list-of-items{
+            margin-top: 15px;
+            a{
+                text-transform: uppercase;
+                color: #fff;
+                        font-family: $heading-bold-font;
+                        font-size: $action-font-size;
+                        letter-spacing: $action-letter-spacing;
+            }
+            span{
+                margin-left: -35px;
+                color: #fff;
+            }
+        }
+    }
+
     .title-content{
         text-transform: uppercase;
-            color: $main-color-accent;
+            color: #fff;
                     font-family: $heading-bold-font;
                     font-size: $action-font-size;
                     letter-spacing: $action-letter-spacing;
     }
 
-    .list-of-items{
-        margin-top: 15px;
-        a{
-            text-transform: uppercase;
-            color: $dark-color-accent;
-                    font-family: $heading-bold-font;
-                    font-size: $action-font-size;
-                    letter-spacing: $action-letter-spacing;
-        }
-        span{
-            margin-left: -35px;
-            color: $main-color-accent;
-        }
-    }
+    
 
         .uk-navbar-nav{
                 a{

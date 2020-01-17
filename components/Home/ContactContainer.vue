@@ -1,6 +1,6 @@
 <template lang="pug">
     div
-        form.heading-form.uk-display-inline-block.uk-margin-medium-bottom(class="uk-form")
+        form.heading-form.uk-display-inline-block.uk-margin-medium-bottom(class="uk-form uk-hidden")
             div
                 .uk-inline
                     a.icon-form.uk-form-icon(href="#", uk-icon="icon: pencil")

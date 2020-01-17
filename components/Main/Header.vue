@@ -134,14 +134,14 @@ export default {
 
     @media(max-width: 1600px){
         .points-decorator{
-            left: -6%; 
+            left: -12%; 
         }
     }
 
     @media(max-width: 1400px){
         .points-decorator{
             width: 120px;
-            left: -6%;
+            left: -12%;
             top: 20%; 
         }
     }

@@ -8,7 +8,7 @@
                             .compensate-margin(class="uk-visible@m")
                             h1.uk-heading-small.uk-margin-remove.heading-animate-item {{ $prismic.asText(data.encabezado_principal) }}
                             h2.uk-heading-small.uk-margin-remove.bold.heading-animate-item {{ $prismic.asText(data.encabezado_secundario) }}
-                            p.content-header.uk-margin-medium-top.heading-animate-item(class="uk-width-large@m uk-visible@l") {{ $prismic.asText(data.descripcion) }}
+                            div(v-html="$prismic.asHtml(data.descripcion)", class="uk-width-large@l uk-margin-remove description-container").content-header.uk-margin-medium-top.heading-animate-item
                             ContactContainer(:data="data").heading-animate-item
                 div(class="uk-width-3-5@m")
                     div.uk-container-item-padding-remove-right
@@ -120,6 +120,21 @@ export default {
 
 <style lang="scss">
 
+    .description-container{
+        p{
+            font-size: .95rem;
+            
+        }
+        em{
+       
+            background-color:  rgba($main-color-accent, 0.1);
+            padding: 10px 10px;   
+            border-left: 4px solid $main-color-accent;
+            color: $main-color-accent;
+            font-size: .8rem;
+        }
+    }
+
     .main-navigator{
         opacity: 0;
     }
@@ -139,14 +154,14 @@ export default {
 
     @media(max-width: 1600px){
         .points-decorator{
-            left: -6%; 
+            left: -10%; 
         }
     }
 
     @media(max-width: 1400px){
         .points-decorator{
             width: 120px;
-            left: -6%;
+            left: -10%;
             top: 20%; 
         }
     }

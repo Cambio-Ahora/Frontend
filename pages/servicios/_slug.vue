@@ -38,6 +38,9 @@ export default {
         this.document = document
         })
     },
+    mounted(){
+      UIkit.offcanvas('#offcanvas-nav').hide()
+    },
     head () {
     return {
       title: this.$prismic.asText(this.document.data.encabezado) + ' | Cambio Ahora',

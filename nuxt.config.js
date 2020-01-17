@@ -52,6 +52,9 @@ export default {
     ],
     link: [
       { rel: 'icon', href: '/favicon.png' }
+    ],
+    script: [
+      { src: 'https://cdn.jsdelivr.net/npm/uikit@3.2.7/dist/js/uikit.min.js' }
     ]
   },
   /*
