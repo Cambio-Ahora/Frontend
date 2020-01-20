@@ -12,7 +12,7 @@
             div(class="uk-width-3-5@m")
                 div.uk-container-item-padding-remove-right
                     div
-                        img.uk-width-1-1.heading-animate-item.image-heading(ref="headingImage", class="uk-visible@m", :src="$prismic.asLink(data.portada)", :alt="data.portada.alt")
+                        img.uk-width-1-1.heading-animate-item.image-heading(ref="headingImage", class="uk-visible", :src="$prismic.asLink(data.portada)", :alt="data.portada.alt")
 
         img.points-decorator(ref="decorator", class="uk-visible@m", src="/images/points.svg", uk-svg, alt="alt")
                         

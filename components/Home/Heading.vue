@@ -132,6 +132,8 @@ export default {
             border-left: 4px solid $main-color-accent;
             color: $main-color-accent;
             font-size: .8rem;
+            word-break: break-word;
+            line-height: 44px;
         }
     }
 

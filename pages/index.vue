@@ -49,6 +49,9 @@ export default {
       this.document = document
     })
   },
+  mounted(){
+      UIkit.offcanvas('#offcanvas-nav').hide()
+    },
   head () {
     return {
       title: this.document.data.meta_title,

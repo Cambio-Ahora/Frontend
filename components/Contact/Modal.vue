@@ -13,23 +13,56 @@
                             a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Monseñor Félix Cabrera 14, Of. 43 - Metro Pedro de Valdivia
                 div
                     div.uk-section.uk-container.background-modal
-                        form(class="uk-form")
+                        form(name="contact", class="uk-form", @submit.prevent="handleSubmit")
+                            input(type="hidden", name="form-name", value="contact")
                             .uk-margin
                                 h2.light.uk-heading-small Cuéntanos un poco sobre ti
                             .uk-margin-small
-                                input.uk-input.uk-form-large(type="text", placeholder="Nombre")
+                                input.uk-input.uk-form-large(type="text", placeholder="Nombre", v-model="form.name", name="name")
                             .uk-margin-small
-                                input.uk-input.uk-form-large(type="text", placeholder="Email")
+                                input.uk-input.uk-form-large(type="email", placeholder="Email", v-model="form.email", name="email")
                             .uk-margin-small
-                                input.uk-input.uk-form-large(type="text", placeholder="Teléfono")
+                                input.uk-input.uk-form-large(type="text", placeholder="Teléfono", v-model="form.phone", name="phone")
                             .uk-margin-small
-                                input.uk-input.uk-form-large(type="text", placeholder="Mensaje")
+                                input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.message", name="message")
                             .uk-margin-small.uk-text-right
                                 button.uk-button.uk-button-large(type="submit") Enviar 
                         
             
 
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+            form: {
+                name: '',
+                email: '',
+                message: '',
+            },
+        }
+  },
+  methods: {
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&');
+    },
+    handleSubmit() {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({ 'form-name': 'contact', ...this.form }),
+      })
+        .then(() => alert('Success!'))
+        .catch(error => alert(error));
+    },
+  }
+}
+</script>
 
 <style lang="scss">
 
@@ -66,14 +99,14 @@
         }
         button.uk-button{
         background-color: $main-color-accent;
-		color: #fff;
+        color: #fff;
         font-family: $heading-bold-font;
         font-size: $action-font-size;
         letter-spacing: $action-letter-spacing;
-        &.secondary{
-            background-color: $dark-color-accent;
+            &.secondary{
+                background-color: $dark-color-accent;
+            }
         }
-    }
     }
 
 
