@@ -87,6 +87,14 @@ a{
 	
 }
 
+.uk-notification-message{
+	background-color: $main-color-accent;
+	color: #fff;
+	font-family: $content-font;
+	font-size: 1rem;
+	text-align: center;
+}
+
 .show-navigator{
 	opacity: 1;
 }

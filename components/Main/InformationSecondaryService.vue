@@ -7,7 +7,7 @@
                     div.content-secondary(ref="animateContent")
                         h2.uk-heading-small.animate-content(class="uk-width-medium@m") {{ $prismic.asText(data.primary.encabezado) }}
                         p.animate-content(class="uk-width-xlarge@m") {{ $prismic.asText(data.primary.contenido) }}
-                        a.cta-button.uk-button.uk-button-large.animate-content {{ data.primary.texto_del_boton }}
+                        nuxt-link(:to="$prismic.asLink(data.primary.accion_del_boton)", v-if="data.primary.accion_del_boton.id").cta-button.uk-button.uk-button-large.animate-content {{ data.primary.texto_del_boton }}
 
                         div.uk-margin.uk-grid-row-large(class="uk-child-width-1-2@m uk-grid-small", uk-grid)
                             div(v-for="listItem in data.items")

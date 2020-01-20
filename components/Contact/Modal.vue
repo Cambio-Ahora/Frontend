@@ -18,13 +18,13 @@
                             .uk-margin
                                 h2.light.uk-heading-small Cuéntanos un poco sobre ti
                             .uk-margin-small
-                                input.uk-input.uk-form-large(type="text", placeholder="Nombre", v-model="form.name", name="name")
+                                input.uk-input.uk-form-large(type="text", placeholder="Nombre", v-model="form.name", name="name", required)
                             .uk-margin-small
-                                input.uk-input.uk-form-large(type="email", placeholder="Email", v-model="form.email", name="email")
+                                input.uk-input.uk-form-large(type="email", placeholder="Email", v-model="form.email", name="email", required)
                             .uk-margin-small
-                                input.uk-input.uk-form-large(type="text", placeholder="Teléfono", v-model="form.phone", name="phone")
+                                input.uk-input.uk-form-large(type="text", placeholder="Teléfono", v-model="form.phone", name="phone", required)
                             .uk-margin-small
-                                input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.message", name="message")
+                                input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.message", name="message", required)
                             .uk-margin-small.uk-text-right
                                 button.uk-button.uk-button-large(type="submit") Enviar 
                         
@@ -57,7 +57,9 @@ export default {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: this.encode({ 'form-name': 'contact', ...this.form }),
       })
-        .then(() => alert('Success!'))
+        .then(reponse => {
+            UIkit.notification({message: 'Se Envió Su Mensaje. Nos contactaremos a la brevedad.', pos: 'top-center'})
+        })
         .catch(error => alert(error));
     },
   }

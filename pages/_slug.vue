@@ -4,6 +4,7 @@
         template(v-for="slice in document.data.body")
             SectionHeader(v-if="slice.slice_type == 'sectionheader'", :data="slice")
             ServiceCardList(v-if="slice.slice_type == 'servicecardlist'", :data="slice")
+            UserCardList(v-if="slice.slice_type == 'teamlist'", :data="slice")
         ButtonGroup
 </template>
 
@@ -13,7 +14,7 @@ import Header from '~/components/Main/Header'
 import ButtonGroup from '~/components/Content/ButtonGroup'
 import ServiceCardList from '~/components/Main/Services/ServiceCardList'
 import SectionHeader from '~/components/Main/SectionHeader'
-
+import UserCardList from '~/components/Main/Team/UserCardList'
 
 function getByUID(prismic, uid) {
   return prismic.api.getByUID('pagina', uid)
@@ -24,7 +25,8 @@ export default {
         Header,
         ButtonGroup,
         ServiceCardList,
-        SectionHeader
+        SectionHeader,
+        UserCardList
     },
     async asyncData({ app, error, params }) {
         let document = await getByUID(app.$prismic, params.slug)
