@@ -1,18 +1,24 @@
 <template lang="pug">
     
     div(class="uk-container uk-container-expand-right")
+
+        img.uk-width-1-1.uk-position-top-right.header-mobile(class="uk-hidden@s", v-if="$route.params.slug != 'quienes-somos'", :src="$prismic.asLink(data.portada)", :alt="data.portada.alt")
+
         div(uk-grid, class="uk-grid-collapse uk-flex uk-flex-middle")
             div(class="uk-width-2-5@m") 
                 div
                     div(ref="contentAnimate", class="uk-text-center uk-text-left@m")
                         .compensate-margin(class="uk-visible@m")
-                        h1.uk-heading-small.uk-margin-remove.heading-animate-item {{ $prismic.asText(data.encabezado_principal) }}
+                        h1.uk-heading-small.uk-margin-remove.heading-animate-item {{ $prismic.asText(data.encabezado_principal) }}                     
                         h2.uk-heading-small.uk-margin-remove.bold.heading-animate-item {{ $prismic.asText(data.encabezado_secundario) }}
+                        .compensate-mobile-spacing(v-if="$route.params.slug != 'quienes-somos'", class="uk-hidden@s")
                         p.content-header.uk-margin-medium-top.heading-animate-item(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
             div(class="uk-width-3-5@m")
                 div.uk-container-item-padding-remove-right
                     div
-                        img.uk-width-1-1.heading-animate-item.image-heading(ref="headingImage", class="uk-visible", :src="$prismic.asLink(data.portada)", :alt="data.portada.alt")
+                        img.uk-width-1-1.heading-animate-item.image-heading(ref="headingImage", class="uk-visible@s", :src="$prismic.asLink(data.portada)", :alt="data.portada.alt")
+
+        
 
         img.points-decorator(ref="decorator", class="uk-visible@m", src="/images/points.svg", uk-svg, alt="alt")
                         
@@ -128,7 +134,13 @@ export default {
         opacity: 0;
     }
 
+    .header-mobile{
+        opacity: 0.25;
+    }
      
+    .compensate-mobile-spacing{
+        margin-top: 45%;
+    }
 
     @media(max-width: 1600px){
         .points-decorator{
