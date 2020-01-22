@@ -89,12 +89,10 @@ export default {
                 startAt: {
                     opacity: 0,
                     y: '10%',
-                    rotate: -5,
                     scale: 1.02,
                 },
                 opacity: 1,
                 y: '0%',
-                rotate: 0,
                 scale: 1,
                 stagger: {
                     amount: .7, 

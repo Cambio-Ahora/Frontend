@@ -1,7 +1,7 @@
 <template lang="pug">
     
     div
-        div.container-content
+        nuxt-link(:to="$prismic.asLink(data.boton_de_accion)", v-if="data.boton_de_accion.id").uk-display-inline-block.container-content
             div(class="uk-grid-small", uk-grid)
                 div.uk-width-auto
                     img.icon(width="30", uk-svg, :src="$prismic.asLink(data.icono)", alt="")

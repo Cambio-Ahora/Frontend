@@ -37,6 +37,7 @@ export default {
     data(){
         return{
             form: {
+                origen: '',
                 name: '',
                 email: '',
                 message: '',
@@ -52,6 +53,13 @@ export default {
         .join('&');
     },
     handleSubmit() {
+        var currentSlug = this.$route.params.slug
+        if(!currentSlug){
+            currentSlug = 'Inicio'
+        }
+
+        this.form.origen = currentSlug
+        
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
