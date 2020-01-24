@@ -84,6 +84,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/robots',
     '@nuxtjs/style-resources',
     '@nuxtjs/sitemap',
     ['prismic-nuxt', {
@@ -115,6 +116,9 @@ export default {
   sitemap: {
     hostname: 'https://cambioahora.cl',
     routes: generateRoutes
+  },
+  robots: {
+    UserAgent: '*',
   },
   styleResources: {
     scss: [
