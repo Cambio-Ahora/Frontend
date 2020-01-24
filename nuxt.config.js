@@ -119,6 +119,7 @@ export default {
   },
   robots: {
     UserAgent: '*',
+    Sitemap: 'https://cambioahora.cl/sitemap.xml'
   },
   styleResources: {
     scss: [
