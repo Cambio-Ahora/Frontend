@@ -2,11 +2,13 @@
 
     section.uk-section
         .uk-container
-            .uk-margin-auto.price-container.uk-card.uk-card-body(class="uk-width-large@s")
+            .uk-margin-auto.price-container.uk-card.uk-card-body(class="uk-width-xlarge@s")
                 div
-                    h3 Valores
-                    p.content La evaluación tiene un valor de #[span.hl-bold ${{ data.primary.precio_de_evaluacion_psicologica | currency }}] y se realiza en una sesión de una hora. 
-                    p.content El valor de cada sesión es de #[span.hl-bold ${{ data.primary.precio_por_sesion | currency }}]
+                    h3 {{ $prismic.asText(data.primary.titulo) }}
+                    div(uk-grid, v-for="service in data.items")
+                        div(class="uk-width-expand", uk-leader) {{ $prismic.asText(service.detalle) }}
+                        div
+                            p.hl-bold ${{ service.precio | currency }}
 
 </template>
 

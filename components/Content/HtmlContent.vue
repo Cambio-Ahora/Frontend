@@ -14,6 +14,13 @@ export default {
 <style lang="scss">
 
     .service-content-html{
+        li{
+            padding-left: calc(1.5em + 10px);
+            span{
+                margin-left: -30px;
+                color: $main-color-accent;
+            }
+        }
         p{
             word-wrap: break-word;
         }
