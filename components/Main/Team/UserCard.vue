@@ -6,7 +6,7 @@
             h4.uk-margin-remove {{ $prismic.asText(data.nombre) }}
             p.uk-margin-remove {{ $prismic.asText(data.titulo_profesional) }}
         hr.uk-hr.uk-margin
-        div.uk-text-left.content-html(v-html="$prismic.asHtml(data.curriculo)")
+        div.uk-text-left.content-html-curriculo(v-html="$prismic.asHtml(data.curriculo)")
     
 </template>
 
@@ -16,10 +16,20 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
     .card-user{
         background-color: $background-color-accent;
+    }
+
+    .content-html-curriculo{
+        li{
+            padding-left: calc(1.5em + 10px);
+            span{
+                margin-left: -30px;
+                color: $main-color-accent;
+            }
+        }
     }
 
 </style>

@@ -87,6 +87,11 @@ export default {
 
             &.uk-nav-sub{
                 li{
+                    padding-left: calc(1.5em + 10px);
+                    span{
+                        margin-left: -30px;
+                        color: $main-color-accent;
+                    }
                     a{
                         color: $soft-dark-color-accent;
                         font-size: .7rem;
