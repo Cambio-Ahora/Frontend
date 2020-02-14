@@ -10,6 +10,7 @@
             a.uk-padding-small.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] {{ data.telefono }}
             a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] {{ data.direccion_a }}
             a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] {{ data.direccion_b }}
+            a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Av. Ejército 502 Depto 905 - Metro Toesca
 </template>
 
 <script>

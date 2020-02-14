@@ -4,11 +4,13 @@
         .uk-container
             .uk-text-center
                 h3 Ubícanos en: 
-                button.uk-button.uk-button-large.secondary(class="uk-visible", @click="$modal.show('modal-contact')") #[span Domeyko 1835 - Metro Toesca]
+                button.uk-button.uk-button-large.secondary.uk-margin(class="uk-visible", @click="$modal.show('modal-contact')") #[span Domeyko 1835 - Metro Toesca]
                     img.uk-margin-small-left(uk-svg, width="20", src="/images/logos/santiago-metro-logo.svg") 
-                button.uk-button.uk-button-large(class="uk-visible", @click="$modal.show('modal-contact')") Monseñor Félix Cabrera 14, Of. 43 - Metro Pedro de Valdivia
+                button.uk-button.uk-button-large.uk-margin(class="uk-visible", @click="$modal.show('modal-contact')") Monseñor Félix Cabrera 14, Of. 43 - Metro Pedro de Valdivia
                     img.uk-margin-small-left(uk-svg, width="20", src="/images/logos/santiago-metro-logo.svg") 
-                button.uk-button.uk-button-large.secondary(type="button", @click="$modal.show('modal-contact')") #[span(uk-icon="phone")] +569 8439 2853
+                button.uk-button.uk-button-large.uk-margin(class="uk-visible", @click="$modal.show('modal-contact')") Av. Ejército 502 Depto 905 - Metro Toesca
+                    img.uk-margin-small-left(uk-svg, width="20", src="/images/logos/santiago-metro-logo.svg") 
+                button.uk-button.uk-button-large.secondary.uk-margin(type="button", @click="$modal.show('modal-contact')") #[span(uk-icon="phone")] +569 8439 2853
 
 </template>
 

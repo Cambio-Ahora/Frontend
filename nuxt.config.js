@@ -105,8 +105,8 @@ export default {
           case Elements.heading6: return `<h6 class="uk-text-break">${children.join('')}</h6>`;
           case Elements.strong: return `<strong class="hl-text">${children.join('')}</strong>`;
           case Elements.listItem:
-          return '<li><span class="uk-margin-small-right" uk-icon="icon: chevron-right"></span>' + children.join('') + '</li>'
-          case Elements.list: return `<ul class="uk-list">${children.join('')}</ul>`;
+          return '<li>' + children.join('') + '</li>'
+          case Elements.list: return `<ul class="uk-list uk-list-bullet">${children.join('')}</ul>`;
           case Elements.image:
             return '<div class="uk-text-center"><img  src="' + element.url + '" alt="' + element.alt + '"></div>';
         }

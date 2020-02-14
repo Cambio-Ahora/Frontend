@@ -1,7 +1,6 @@
 <template lang="pug">
 
     modal(name="modal-contact", scrollable=true, height="auto", transition="nice-modal-fade")
-        div
             div(class="uk-child-width-1-2@m uk-flex uk-flex-middle", uk-grid)
                 div(class="uk-visible@m")
                     div.uk-container
@@ -11,6 +10,7 @@
                             a.uk-padding-small.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] +569 8439 2853
                             a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Domeyko 1835 - Metro Toesca
                             a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Monseñor Félix Cabrera 14, Of. 43 - Metro Pedro de Valdivia
+                            a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Av. Ejército 502 Depto 905 - Metro Toesca
                 div
                     div.uk-section.uk-container.background-modal
                         form(name="contact", class="uk-form", @submit.prevent="handleSubmit")
@@ -26,8 +26,10 @@
                             .uk-margin-small
                                 input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.message", name="message", required)
                             .uk-margin-small.uk-text-right
+                                button.uk-button.uk-button-large.close-button.uk-margin-right(type="button", @click="$modal.hide('modal-contact')") Volver 
                                 button.uk-button.uk-button-large(type="submit") Enviar 
                         
+
             
 
 </template>
@@ -76,6 +78,8 @@ export default {
 
 <style lang="scss">
 
+    
+
     .communication-links{
         a{
             span{
@@ -115,6 +119,9 @@ export default {
         letter-spacing: $action-letter-spacing;
             &.secondary{
                 background-color: $dark-color-accent;
+            }
+            &.close-button{
+                background-color: $soft-dark-color-accent
             }
         }
     }
