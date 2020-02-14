@@ -5,6 +5,10 @@
             SectionHeader(v-if="slice.slice_type == 'sectionheader'", :data="slice")
             ServiceCardList(v-if="slice.slice_type == 'servicecardlist'", :data="slice")
             UserCardList(v-if="slice.slice_type == 'teamlist'", :data="slice")
+            SectionImageContent(v-if="slice.slice_type == 'sectionimagecontent'", :data="slice")
+            ResumeList(v-if="slice.slice_type == 'resumelist'", :data="slice")
+            InformationSecondaryService(v-if="slice.slice_type == 'informationsecondaryservice'", :data="slice")
+            FaqList(v-if="slice.slice_type == 'faqlist'", :data="slice")
         ButtonGroup
 </template>
 
@@ -16,6 +20,12 @@ import ServiceCardList from '~/components/Main/Services/ServiceCardList'
 import SectionHeader from '~/components/Main/SectionHeader'
 import UserCardList from '~/components/Main/Team/UserCardList'
 
+import BusinessList from '~/components/Main/BusinessList'
+import SectionImageContent from '~/components/Main/SectionImageContent'
+import ResumeList from '~/components/Main/Services/ResumeList'
+import InformationSecondaryService from '~/components/Main/InformationSecondaryService'
+import FaqList from '~/components/Main/Faq/FaqList'
+
 function getByUID(prismic, uid) {
   return prismic.api.getByUID('pagina', uid)
 }
@@ -26,7 +36,12 @@ export default {
         ButtonGroup,
         ServiceCardList,
         SectionHeader,
-        UserCardList
+        UserCardList,
+        BusinessList,
+        SectionImageContent,
+        ResumeList,
+        InformationSecondaryService,
+        FaqList
     },
     async asyncData({ app, error, params }) {
         let document = await getByUID(app.$prismic, params.slug)
