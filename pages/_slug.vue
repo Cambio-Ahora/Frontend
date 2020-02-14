@@ -2,6 +2,7 @@
     div
         Header(:data="document.data")
         template(v-for="slice in document.data.body")
+            BusinessList(v-if="slice.slice_type == 'businesslist'", :data="slice")
             SectionHeader(v-if="slice.slice_type == 'sectionheader'", :data="slice")
             ServiceCardList(v-if="slice.slice_type == 'servicecardlist'", :data="slice")
             UserCardList(v-if="slice.slice_type == 'teamlist'", :data="slice")
@@ -45,6 +46,7 @@ export default {
     },
     async asyncData({ app, error, params }) {
         let document = await getByUID(app.$prismic, params.slug)
+        console.log(document)
         if (document) {
         return { document }
         } else {
