@@ -46,7 +46,6 @@ export default {
     },
     async asyncData({ app, error, params }) {
         let document = await getByUID(app.$prismic, params.slug)
-        console.log(document)
         if (document) {
         return { document }
         } else {

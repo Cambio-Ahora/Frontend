@@ -2,7 +2,7 @@
 
         div(uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky uk-background-default uk-box-shadow-small; top: 200")
             .uk-container.uk-container-large.fix-zindex(v-bind:class="{ 'main-navigator': $nuxt.$route.path == '/' }")
-                    nav.uk-navbar-container.uk-navbar-transparent(uk-navbar)
+                    nav.uk-navbar-container.uk-navbar-transparent.uk-navbar(uk-navbar)
                         .uk-navbar-left
                             .uk-navbar-item 
                                 nuxt-link(to="/")
@@ -22,7 +22,7 @@
                             .uk-navbar-item
                                 a.cta-button.secondary.fix-padding-small-link.uk-button(href="tel:+56984392853") #[span(uk-icon="icon: receiver;") ]#[span(class="uk-visible@s") +569 8439 2853]
                             .uk-navbar-item
-                                a.cta-button.uk-button.fix-padding-small-link(@click="$modal.show('modal-contact')") Agendar #[span(class="uk-visible@s") Tu Hora]
+                                nuxt-link.cta-button.uk-button.fix-padding-small-link(to='/contacto') Agendar #[span(class="uk-visible@s") Tu Hora]
                             .uk-navbar-item(class="uk-hidden@l")
                                 a(uk-toggle="target: #offcanvas-nav", uk-navbar-toggle-icon )
 
