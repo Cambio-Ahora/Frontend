@@ -1,6 +1,8 @@
 <template lang="pug">
 
         div(uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky uk-background-default uk-box-shadow-small; top: 200")
+            .time-work-container.uk-text-right
+                    p.uk-margin-remove #[span.uk-margin-small-right(uk-icon="icon: clock;")] Lun - Vie: 10:00 hrs. a 21:00 hrs \ Sáb. de 09:00 hrs a 17:00 hrs.
             .uk-container.uk-container-large.fix-zindex(v-bind:class="{ 'main-navigator': $nuxt.$route.path == '/' }")
                     nav.uk-navbar-container.uk-navbar-transparent.uk-navbar(uk-navbar)
                         .uk-navbar-left
@@ -65,6 +67,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    .time-work-container{
+        background-color: $main-color-accent;
+        padding: 0px 20px;
+        position: relative;
+        z-index: 20;
+        p{
+            color: #fff;
+        }
+    }
 
     .navbar-offcanvas{
         ul{
@@ -152,6 +164,14 @@ export default {
         font-family: $heading-bold-font;
         font-size: $action-font-size;
         letter-spacing: $action-letter-spacing;
+    }
+
+    @media(max-width: 640px){
+        .time-work-container{
+            p{
+                font-size: .75rem;
+            }
+        }
     }
 
 </style>

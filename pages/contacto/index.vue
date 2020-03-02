@@ -10,8 +10,9 @@
                         .communication-links.uk-margin-top
                             a.uk-padding-small.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] +569 8439 2853
                             a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Domeyko 1835 - Metro Toesca
-                            a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Monseñor Félix Cabrera 14, Of. 43 - Metro Pedro de Valdivia
-                            a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Av. Ejército 502 Depto 905 - Metro Toesca
+                            h6.uk-padding-small.uk-margin-remove Horarios de Atención
+                            a.uk-padding-small.uk-display-block #[span.uk-margin-small-right(uk-icon="icon: clock;")] Lun - Vie: 10:00 hrs. a 21:00 hrs \ Sáb. de 09:00 hrs a 17:00 hrs.
+
                 div(class="uk-width-expand@m")
                     div.uk-flex.uk-flex-middle.uk-section.uk-container.background-modal.uk-container-item-padding-remove-right(uk-height-viewport)
                         .uk-padding(class="uk-width-xlarge@m uk-margin-auto")

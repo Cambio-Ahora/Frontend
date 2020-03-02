@@ -17,7 +17,7 @@
 
 <style lang="scss" scoped>
 
-    button{
+    a{
         background-color: $main-color-accent;
 		color: #fff;
         font-family: $heading-bold-font;

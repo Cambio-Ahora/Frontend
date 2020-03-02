@@ -13,6 +13,7 @@
                         h2.uk-heading-small.uk-margin-remove.bold.heading-animate-item {{ $prismic.asText(data.encabezado_secundario) }}
                         .compensate-mobile-spacing(v-if="$route.params.slug != 'quienes-somos'", class="uk-hidden@s")
                         p.content-header.uk-margin-medium-top.heading-animate-item(class="uk-width-large@m") {{ $prismic.asText(data.descripcion) }}
+                        ContactContainer.heading-animate-item 
             div(class="uk-width-3-5@m")
                 div.uk-container-item-padding-remove-right
                     div
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import ContactContainer from '~/components/Home/ContactContainer'
 import { gsap } from 'gsap'
 
 export default {
@@ -34,6 +36,9 @@ export default {
         return{
             animationTl: null
         }        
+    },
+    components: {
+        ContactContainer
     },
     beforeMount(){
         this.animationTl = new gsap.timeline({
