@@ -135,6 +135,11 @@ export default {
             margin-left: -35px;
             color: $main-color-accent;
         }
+        li{
+            &:nth-child(n+2){
+                margin-top: 5px;
+            }
+        }
     }
 
     nav{
