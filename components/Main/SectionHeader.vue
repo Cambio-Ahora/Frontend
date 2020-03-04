@@ -1,6 +1,6 @@
 <template lang="pug">
 
-    section.uk-section(v-view.once="isInView", :style="{ 'background-color' : data.primary.color_de_fondo }")
+    section.uk-section.uk-section-small(v-view.once="isInView", :style="{ 'background-color' : data.primary.color_de_fondo }")
         div.uk-container
             div.uk-text-center(ref="animateImage")
                 h2.uk-margin-remove.animate-image {{ $prismic.asText(data.primary.encabezado) }}
