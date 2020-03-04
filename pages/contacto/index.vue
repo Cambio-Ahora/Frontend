@@ -125,6 +125,9 @@ export default {
             width: 100%;
             margin-right: 0;
         }
+        .background-modal{
+            min-height: 300px!important;
+        }
     }
 
 
