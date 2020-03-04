@@ -5,7 +5,7 @@
             .uk-margin-auto.price-container.uk-card.uk-card-body(class="uk-width-xlarge@s")
                 div
                     h3 {{ $prismic.asText(data.primary.titulo) }}
-                    div(uk-grid, v-for="service in data.items")
+                    div.uk-grid-collapse.uk-grid(uk-grid, v-for="service in data.items")
                         div(class="uk-width-expand", uk-leader) {{ $prismic.asText(service.detalle) }}
                         div
                             p.hl-bold ${{ service.precio | currency }}

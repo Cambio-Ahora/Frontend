@@ -9,7 +9,8 @@
         .communication-links
             a.uk-padding-small.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] +569 8439 2853
             a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")]  Domeyko 1835 - Metro Toesca
-            h6.uk-padding-small.uk-margin-remove Horarios de Atención
+            div(class="uk-width-large@m")
+                h6.uk-padding-small.uk-margin-remove.uk-text-center Horarios de Atención
             a.uk-padding-small.uk-display-block #[span.uk-margin-small-right(uk-icon="icon: clock;")] Lun - Vie: 10:00 hrs. a 21:00 hrs \ Sáb. de 09:00 hrs a 17:00 hrs.
 </template>
 
