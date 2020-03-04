@@ -75,6 +75,11 @@ export default {
                 margin-left: -35px;
                 color: #fff;
             }
+            li{
+                &:nth-child(n+2){
+                margin-top: 5px;
+            }
+            }
         }
     }
 
