@@ -7,7 +7,6 @@
                     div
                         div(class="uk-text-center uk-text-left@m")
                             h1.uk-heading-small.uk-margin-remove ¿Necesitas ayuda psicológica de un especialista?
-                            h2.uk-heading-small.uk-margin-remove.bold Agenda tu hora.
                             .communication-links.uk-margin-top
                                 a.uk-padding-small.uk-display-inline-block.uk-margin-small-right #[span.uk-margin-small-right(uk-icon="icon: phone;")] +569 8439 2853
                                 a.uk-padding-small.uk-display-inline-block #[span.uk-margin-small-right(uk-icon="icon: location;")] Domeyko 1835 - Metro Toesca
@@ -21,7 +20,7 @@
                             form(name="contact", class="uk-form", @submit.prevent="handleSubmit")
                                 input(type="hidden", name="form-name", value="contact")
                                 .uk-margin
-                                    h2.light.uk-heading-small Cuéntanos un poco sobre ti
+                                    h2.light.uk-heading-small Agenda tu hora
                                 .uk-margin-small
                                     input.uk-input.uk-form-large(type="text", placeholder="Nombre", v-model="form.name", name="name", required)
                                 .uk-margin-small
