@@ -2,7 +2,7 @@
 
         div(uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky uk-background-default uk-box-shadow-small; top: 200")
             .time-work-container.uk-text-center
-                    p.uk-margin-remove #[span.uk-margin-small-right(uk-icon="icon: clock;")] Lun - Vie: 10:00 hrs. a 21:00 hrs \ Sáb. de 09:00 hrs a 17:00 hrs.
+                    p.uk-margin-remove #[span.uk-margin-small-right(uk-icon="icon: clock;")] Lun - Vie: 09:00 hrs. a 21:00 hrs \ Sáb. de 09:00 hrs a 17:00 hrs.
             .uk-container.uk-container-large.fix-zindex(v-bind:class="{ 'main-navigator': $nuxt.$route.path == '/' }")
                     nav.uk-navbar-container.uk-navbar-transparent.uk-navbar(uk-navbar)
                         .uk-navbar-left
