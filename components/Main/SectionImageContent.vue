@@ -1,6 +1,6 @@
 <template lang="pug">
 
-    section(v-view.once="isInView", :style="{ 'background-color' : data.primary.color_de_fondo }")
+    section.uk-section(v-view.once="isInView", :style="{ 'background-color' : data.primary.color_de_fondo }")
         div(class="uk-container uk-container-expand-left")
             div(uk-grid, class="uk-flex uk-grid-large uk-flex-middle")
                 div(class="uk-width-3-5@m") 
