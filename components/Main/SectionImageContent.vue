@@ -11,7 +11,7 @@
                 div(class="uk-width-2-5@m")
                     div
                         div.animate-content(ref="animateContent")
-                            h2.uk-heading-small(class="uk-width-medium@m") {{ $prismic.asText(data.primary.encabezado) }}
+                            h2.uk-heading-small(class="uk-width-xlarge@m") {{ $prismic.asText(data.primary.encabezado) }}
                             p(class="uk-width-xlarge@m")    {{ $prismic.asText(data.primary.contenido) }}
                             nuxt-link.cta-button.uk-button.uk-button-large.uk-margin-bottom(to="/contacto") Agenda Tu Hora
 
