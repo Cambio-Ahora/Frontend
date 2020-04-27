@@ -9,6 +9,7 @@
       ResumeList(v-if="slice.slice_type == 'resumelist'", :data="slice")
       InformationSecondaryService(v-if="slice.slice_type == 'informationsecondaryservice'", :data="slice")
       FaqList(v-if="slice.slice_type == 'faqlist'", :data="slice")
+      ContenidoAlineado(v-if="slice.slice_type == 'contenido_alineado'", :data="slice")
 </template>
 
 <script>
@@ -20,6 +21,7 @@ import SectionImageContent from '~/components/Main/SectionImageContent'
 import ResumeList from '~/components/Main/Services/ResumeList'
 import InformationSecondaryService from '~/components/Main/InformationSecondaryService'
 import FaqList from '~/components/Main/Faq/FaqList'
+import ContenidoAlineado from '@/components/Main/ContenidoAlineado'
 
 function getSingle(prismic) {
   return prismic.api.getSingle('inicio')
@@ -34,7 +36,8 @@ export default {
     SectionImageContent,
     ResumeList,
     InformationSecondaryService,
-    FaqList
+    FaqList,
+    ContenidoAlineado
   },
   async asyncData({ app, error }) {
     let document = await getSingle(app.$prismic)

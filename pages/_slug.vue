@@ -10,6 +10,7 @@
             ResumeList(v-if="slice.slice_type == 'resumelist'", :data="slice")
             InformationSecondaryService(v-if="slice.slice_type == 'informationsecondaryservice'", :data="slice")
             FaqList(v-if="slice.slice_type == 'faqlist'", :data="slice")
+            ContenidoAlineado(v-if="slice.slice_type == 'contenido_alineado'", :data="slice")
         ButtonGroup
 </template>
 
@@ -27,6 +28,8 @@ import ResumeList from '~/components/Main/Services/ResumeList'
 import InformationSecondaryService from '~/components/Main/InformationSecondaryService'
 import FaqList from '~/components/Main/Faq/FaqList'
 
+import ContenidoAlineado from '@/components/Main/ContenidoAlineado'
+
 function getByUID(prismic, uid) {
   return prismic.api.getByUID('pagina', uid)
 }
@@ -42,7 +45,8 @@ export default {
         SectionImageContent,
         ResumeList,
         InformationSecondaryService,
-        FaqList
+        FaqList,
+        ContenidoAlineado
     },
     async asyncData({ app, error, params }) {
         let document = await getByUID(app.$prismic, params.slug)

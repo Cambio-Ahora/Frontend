@@ -2,6 +2,7 @@
     div.container
         Header(:data="document.data")
         template(v-for="slice in document.data.body")
+            ContenidoAlineado(v-if="slice.slice_type == 'contenido_alineado'", :data="slice")
             HtmlContent(v-if="slice.slice_type == 'bloque_de_contenido'", :data="slice")
             Price(v-if="slice.slice_type == 'precio'", :data="slice")
         ButtonGroup
@@ -13,6 +14,7 @@ import Header from '~/components/Content/Header'
 import HtmlContent from '~/components/Content/HtmlContent'
 import ButtonGroup from '~/components/Content/ButtonGroup'
 import Price from '~/components/Content/Price'
+import ContenidoAlineado from '@/components/Main/ContenidoAlineado'
 
 function getByUID(prismic, uid) {
   return prismic.api.getByUID('servicio', uid)
@@ -23,7 +25,8 @@ export default {
         Header,
         ButtonGroup,
         HtmlContent,
-        Price
+        Price,
+        ContenidoAlineado
     },
     async asyncData({ app, error, params }) {
         let document = await getByUID(app.$prismic, params.slug)
