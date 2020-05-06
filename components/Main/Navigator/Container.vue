@@ -21,10 +21,10 @@
                                             li(v-for="submenu in menu.items")
                                                 nuxt-link( :to="$prismic.asLink(submenu.sub_nav_link)", v-if="submenu.sub_nav_link.id" )   #[span.uk-margin-small-right(uk-icon="icon: chevron-right")] {{ $prismic.asText(submenu.sub_nav_link_label) }}
                         .uk-navbar-right
-                            .uk-navbar-item
-                                a.cta-button.secondary.fix-padding-small-link.uk-button(href="tel:+56984392853") #[span(uk-icon="icon: receiver;") ]#[span(class="uk-visible@s") +569 8439 2853]
-                            .uk-navbar-item
-                                nuxt-link.cta-button.uk-button.fix-padding-small-link(to='/contacto') Agendar #[span(class="uk-visible@s") Tu Hora]
+                            .uk-navbar-item.uk-padding-remove
+                                a.small-link.cta-button.secondary.fix-padding-small-link.uk-button(href="tel:+56984392853") #[span(uk-icon="icon: receiver;") ]#[span(class="uk-visible@s") +569 8439 2853]
+                            .uk-navbar-item.uk-padding-remove
+                                nuxt-link.small-link.cta-button.uk-button.fix-padding-small-link(to='/contacto') Agendar #[span(class="uk-visible@s") Tu Hora]
                             .uk-navbar-item(class="uk-hidden@l")
                                 a(uk-toggle="target: #offcanvas-nav", uk-navbar-toggle-icon )
 
@@ -67,6 +67,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    .small-link{
+        font-size: .65rem!important;
+    }
 
     .time-work-container{
         background-color: $main-color-accent;
@@ -151,6 +155,7 @@ export default {
                     font-size: $action-font-size;
                     letter-spacing: $action-letter-spacing;
                     transition: all 200ms ease-in-out;
+                    font-size: .65rem;
                     &:hover{
                         color: $main-color-accent;
                     }
