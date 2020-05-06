@@ -69,7 +69,7 @@ export default {
 <style lang="scss" scoped>
 
     .small-link{
-        font-size: .65rem!important;
+        font-size: .7rem!important;
     }
 
     .time-work-container{
@@ -155,7 +155,7 @@ export default {
                     font-size: $action-font-size;
                     letter-spacing: $action-letter-spacing;
                     transition: all 200ms ease-in-out;
-                    font-size: .65rem;
+                    font-size: .7rem;
                     &:hover{
                         color: $main-color-accent;
                     }
