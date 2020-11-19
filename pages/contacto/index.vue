@@ -59,17 +59,17 @@ export default {
         .join('&');
     },
     handleSubmit() {
-        var currentSlug = this.$route.params.slug
+        /*var currentSlug = this.$route.params.slug
         if(!currentSlug){
             currentSlug = 'Inicio'
-        }
+        }*/
 
         this.form.origen = 'Formulario Psicología Online'
         
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({ 'form-name': 'contact', ...this.form }),
+        body: this.encode({ 'form-name': 'contacto', ...this.form }),
       })
         .then(reponse => {
             UIkit.notification({message: 'Se Envió Su Mensaje. Nos contactaremos a la brevedad.', pos: 'top-center'})
