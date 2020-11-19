@@ -42,6 +42,7 @@ export default {
     data(){
         return{
             form: {
+                subject: 'Formulario de Contacto Psicología Online',
                 origen: '',
                 nombre: '',
                 email: '',
