@@ -69,7 +69,7 @@ export default {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({ 'form-name': 'contacto', ...this.form }),
+        body: this.encode({ 'form-name': 'contacto-final', ...this.form }),
       })
         .then(reponse => {
             UIkit.notification({message: 'Se Envió Su Mensaje. Nos contactaremos a la brevedad.', pos: 'top-center'})
