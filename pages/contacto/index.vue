@@ -22,13 +22,13 @@
                                 .uk-margin
                                     h2.light.uk-heading-small Agenda tu hora
                                 .uk-margin-small
-                                    input.uk-input.uk-form-large(type="text", placeholder="Nombre", v-model="form.name", name="name", required)
+                                    input.uk-input.uk-form-large(type="text", placeholder="Nombre", v-model="form.nombre", name="nombre", required)
                                 .uk-margin-small
                                     input.uk-input.uk-form-large(type="email", placeholder="Email", v-model="form.email", name="email", required)
                                 .uk-margin-small
-                                    input.uk-input.uk-form-large(type="text", placeholder="Teléfono", v-model="form.phone", name="phone", required)
+                                    input.uk-input.uk-form-large(type="text", placeholder="Teléfono", v-model="form.telefono", name="telefono", required)
                                 .uk-margin-small
-                                    input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.message", name="message", required)
+                                    input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.mensaje", name="mensaje", required)
                                 .uk-margin-small.uk-text-right
                                     button.uk-button.uk-button-large(type="submit") Enviar 
                         
@@ -43,9 +43,10 @@ export default {
         return{
             form: {
                 origen: '',
-                name: '',
+                nombre: '',
                 email: '',
-                message: '',
+                mensaje: '',
+                telefono: ''
             },
         }
   },
@@ -63,7 +64,7 @@ export default {
             currentSlug = 'Inicio'
         }
 
-        this.form.origen = currentSlug
+        this.form.origen = 'Formulario Psicología Online'
         
       fetch('/', {
         method: 'POST',
