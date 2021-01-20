@@ -15,7 +15,7 @@
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/sitemap": "^2.0.1",
     "@nuxtjs/style-resources": "^1.0.0",
-    "gsap": "^3.0.4",
+    "gsap": "^3.6.0",
     "nuxt": "^2.0.0",
     "prismic-javascript": "^2.1.5",
     "prismic-nuxt": "^0.5.3",
