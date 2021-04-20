@@ -32,13 +32,13 @@
                                 .uk-margin-small
                                     h6.uk-margin-remove Seleccione su previsión:
                                     label.uk-margin-small-right.label-white
-                                        input.uk-radio(type="radio", value="Fonasa", v-model="form.prevision", name="prevision")
+                                        input.uk-radio(type="radio", value="Fonasa", v-model="form.prevision", required, name="prevision")
                                         span Fonasa
                                     label.uk-margin-small-right.label-white
-                                        input.uk-radio(type="radio", value="Isapre", v-model="form.prevision", name="prevision")
+                                        input.uk-radio(type="radio", value="Isapre", v-model="form.prevision", required, name="prevision")
                                         span Isapre
                                     label.uk-margin-small-right.label-white
-                                        input.uk-radio(type="radio", value="Sin Previsión", v-model="form.prevision", name="prevision")
+                                        input.uk-radio(type="radio", value="Sin Previsión", v-model="form.prevision", required, name="prevision")
                                         span Sin Previsión
                                 .uk-margin-small.uk-text-right
                                     button.uk-button.uk-button-large(type="submit") Enviar 
