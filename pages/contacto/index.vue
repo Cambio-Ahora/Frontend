@@ -31,7 +31,7 @@
                                     input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.mensaje", name="mensaje", required)
                                 .uk-margin-small
                                     label.uk-margin-small-right.label-white
-                                        input.uk-radio(type="radio", value="Fonada", v-model="form.prevision", name="prevision")
+                                        input.uk-radio(type="radio", value="Fonasa", v-model="form.prevision", name="prevision")
                                         span Fonasa
                                     label.uk-margin-small-right.label-white
                                         input.uk-radio(type="radio", value="Isapre", v-model="form.prevision", name="prevision")
