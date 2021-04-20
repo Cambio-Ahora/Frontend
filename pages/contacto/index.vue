@@ -30,6 +30,7 @@
                                 .uk-margin-small
                                     input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.mensaje", name="mensaje", required)
                                 .uk-margin-small
+                                    h6.uk-margin-remove Seleccione su previsión:
                                     label.uk-margin-small-right.label-white
                                         input.uk-radio(type="radio", value="Fonasa", v-model="form.prevision", name="prevision")
                                         span Fonasa
