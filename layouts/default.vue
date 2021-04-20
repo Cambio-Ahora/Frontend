@@ -6,7 +6,7 @@
       Footer
     .uk-position-bottom-right.uk-position-small.uk-position-fixed
       a(:href="whatsappLink")
-        img(src="http://stagewp.sharethis.com/wp-content/uploads/2017/05/WhatsApp.png", width="60", uk-tooltip="Comunícate con nosotros por WhatsApp")
+        img(src="/images/logos/whatsapp.png", width="60", uk-tooltip="Comunícate con nosotros por WhatsApp")
 </template>
 
 <script>
