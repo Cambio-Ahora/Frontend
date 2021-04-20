@@ -29,6 +29,16 @@
                                     input.uk-input.uk-form-large(type="text", placeholder="Teléfono", v-model="form.telefono", name="telefono", required)
                                 .uk-margin-small
                                     input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.mensaje", name="mensaje", required)
+                                .uk-margin-small
+                                    label.uk-margin-small-right.label-white
+                                        input.uk-radio(type="radio", value="Fonada", v-model="form.prevision", name="prevision")
+                                        span Fonasa
+                                    label.uk-margin-small-right.label-white
+                                        input.uk-radio(type="radio", value="Isapre", v-model="form.prevision", name="prevision")
+                                        span Isapre
+                                    label.uk-margin-small-right.label-white
+                                        input.uk-radio(type="radio", value="Sin Previsión", v-model="form.prevision", name="prevision")
+                                        span Sin Previsión
                                 .uk-margin-small.uk-text-right
                                     button.uk-button.uk-button-large(type="submit") Enviar 
                         
@@ -47,7 +57,8 @@ export default {
                 nombre: '',
                 email: '',
                 mensaje: '',
-                telefono: ''
+                telefono: '',
+                prevision: ''
             },
         }
   },
@@ -83,7 +94,12 @@ export default {
 
 <style lang="scss" scoped>
 
-    
+    .label-white{
+        color: $background-color-accent;
+        input{
+            margin-right: .2rem;
+        }
+    }
 
     .communication-links{
         a{

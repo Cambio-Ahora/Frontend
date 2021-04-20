@@ -4,6 +4,9 @@
     div
       nuxt.main-container
       Footer
+    .uk-position-bottom-right.uk-position-small.uk-position-fixed
+      a(:href="whatsappLink")
+        img(src="http://stagewp.sharethis.com/wp-content/uploads/2017/05/WhatsApp.png", width="60", uk-tooltip="Comunícate con nosotros por WhatsApp")
 </template>
 
 <script>
@@ -13,6 +16,22 @@ export default {
   components:{
     Navigator,
     Footer
+  },
+  data(){
+    return{
+      phone: '56940444172',
+      message: '😉 Hola'
+    }
+  },
+  async fetch(){
+    const { data } = await this.$prismic.api.getSingle('configuracion')
+    this.phone = data.whatsapp_numero
+    this.message = data.mensaje
+  },
+  computed: {
+    whatsappLink(){
+      return 'https://api.whatsapp.com/send?phone='+ this.phone +'&text=' + this.message
+    }
   },
   mounted(){
     
