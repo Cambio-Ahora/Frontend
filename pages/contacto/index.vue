@@ -32,13 +32,13 @@
                                 .uk-margin-small
                                     h6.uk-margin-remove Seleccione su previsión:
                                     label.uk-margin-small-right.label-white
-                                        input.uk-radio(type="radio", value="Fonasa", v-model="form.prevision", required, name="prevision")
+                                        input.uk-radio(type="radio", value="Fonasa", v-model="form.prevision",  name="prevision")
                                         span Fonasa
                                     label.uk-margin-small-right.label-white
-                                        input.uk-radio(type="radio", value="Isapre", v-model="form.prevision", required, name="prevision")
+                                        input.uk-radio(type="radio", value="Isapre", v-model="form.prevision", name="prevision")
                                         span Isapre
                                     label.uk-margin-small-right.label-white
-                                        input.uk-radio(type="radio", value="Sin Previsión", v-model="form.prevision", required, name="prevision")
+                                        input.uk-radio(type="radio", value="Sin Previsión", v-model="form.prevision",  name="prevision")
                                         span Sin Previsión
                                 .uk-margin-small.uk-text-right
                                     button.uk-button.uk-button-large(type="submit") Enviar 
@@ -72,22 +72,26 @@ export default {
         .join('&');
     },
     handleSubmit() {
-        /*var currentSlug = this.$route.params.slug
-        if(!currentSlug){
-            currentSlug = 'Inicio'
-        }*/
-
         this.form.origen = 'Formulario Psicología Online'
         
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({ 'form-name': 'contacto-final', ...this.form }),
-      })
-        .then(reponse => {
-            UIkit.notification({message: 'Se Envió Su Mensaje. Nos contactaremos a la brevedad.', pos: 'top-center'})
+        if(this.form.prevision != ''){
+            fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: this.encode({ 'form-name': 'contacto-final', ...this.form }),
         })
-        .catch(error => alert(error));
+            .then(reponse => {
+                UIkit.notification({message: 'Se Envió Su Mensaje. Nos contactaremos a la brevedad.', pos: 'top-center'})
+            })
+            .catch(error => alert(error));
+        }else{
+            UIkit.notification({
+                message: 'Debe elegir su previsión para enviar el formulario.',
+                status: 'primary',
+                pos: 'top-center',
+                timeout: 5000
+            });
+        }
     },
   }
 }
