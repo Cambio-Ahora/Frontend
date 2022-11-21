@@ -39,7 +39,7 @@ return Promise.all([pages, services]).then(values => {
     
 
 export default {
-  mode: 'universal',
+  target: 'static',
   /*
   ** Headers of the page
   */
