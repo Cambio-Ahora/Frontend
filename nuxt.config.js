@@ -11,7 +11,7 @@ const pages = Prismic.getApi(prismicEndpoint).then(api => {
       return response.results.map(payload => {
         return {
           route: `/${payload.uid}`,
-          payload
+          payload 
         }
       })
     })
