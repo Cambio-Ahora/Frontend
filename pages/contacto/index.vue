@@ -54,7 +54,7 @@ export default {
         return{
             form: {
                 subject: 'Formulario de Contacto Psicología Online',
-                origen: '',
+                origen: 'Formulario de Contacto Psicología Online',
                 nombre: '',
                 email: '',
                 mensaje: '',
@@ -72,26 +72,23 @@ export default {
         .join('&');
     },
     handleSubmit() {
-        this.form.origen = 'Formulario Psicología Online'
-        
-        if(this.form.prevision != ''){
-            fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: this.encode({ 'form-name': 'contacto-final', ...this.form }),
-        })
-            .then(reponse => {
-                UIkit.notification({message: 'Se Envió Su Mensaje. Nos contactaremos a la brevedad.', pos: 'top-center'})
-            })
-            .catch(error => alert(error));
-        }else{
+
+        if(this.form.prevision == ''){
             UIkit.notification({
                 message: 'Debe elegir su previsión para enviar el formulario.',
                 status: 'primary',
                 pos: 'top-center',
                 timeout: 5000
             });
+        }else{
+            this.$axios.post(`https://schooldigital.cl/api/auth/demoMailNewVersion`, {
+                datos: this.form
+            })
+            .then(response => {
+                UIkit.notification({message: 'Se Envió Su Mensaje. Nos contactaremos a la brevedad.', pos: 'top-center'})
+            })
         }
+
     },
   }
 }
