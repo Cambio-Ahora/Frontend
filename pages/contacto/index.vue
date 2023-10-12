@@ -28,7 +28,7 @@
                                 .uk-margin-small
                                     input.uk-input.uk-form-large(type="text", placeholder="Teléfono", v-model="form.telefono", name="telefono", required)
                                 .uk-margin-small
-                                    input.uk-input.uk-form-large(type="text", placeholder="Mensaje", v-model="form.mensaje", name="mensaje", required)
+                                    input.uk-input.uk-form-large(type="text", placeholder="Escribe tu motivo de consulta", v-model="form.mensaje", name="mensaje", required)
                                 .uk-margin-small
                                     h6.uk-margin-remove Seleccione su previsión:
                                     label.uk-margin-small-right.label-white
