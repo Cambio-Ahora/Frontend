@@ -53,7 +53,7 @@ export default {
     })
   },
   mounted(){
-      UIkit.offcanvas('#offcanvas-nav').hide()
+      //UIkit.offcanvas('#offcanvas-nav').hide()
     },
   head () {
     return {

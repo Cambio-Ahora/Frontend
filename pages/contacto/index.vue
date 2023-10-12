@@ -74,18 +74,20 @@ export default {
     handleSubmit() {
 
         if(this.form.prevision == ''){
-            UIkit.notification({
-                message: 'Debe elegir su previsión para enviar el formulario.',
+            alert('Debe elegir su previsión para enviar el formulario.')
+            /*UIkit.notification({
+                message: '',
                 status: 'primary',
                 pos: 'top-center',
                 timeout: 5000
-            });
+            });*/
         }else{
             this.$axios.post(`https://schooldigital.cl/api/auth/demoMailNewVersion`, {
                 datos: this.form
             })
             .then(response => {
-                UIkit.notification({message: 'Se Envió Su Mensaje. Nos contactaremos a la brevedad.', pos: 'top-center'})
+                alert('Se Envió Su Mensaje. Nos contactaremos a la brevedad.')
+                //UIkit.notification({message: '', pos: 'top-center'})
             })
         }
 
