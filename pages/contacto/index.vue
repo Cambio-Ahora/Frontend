@@ -1,6 +1,6 @@
 <template lang="pug">
 
-    
+
         .uk-container.uk-container-expand-right
             div(class="uk-flex uk-flex-middle", uk-grid)
                 div(class=" uk-width-xlarge@m")
@@ -41,10 +41,10 @@
                                         input.uk-radio(type="radio", value="Sin Previsión", v-model="form.prevision",  name="prevision")
                                         span Sin Previsión
                                 .uk-margin-small.uk-text-right
-                                    button.uk-button.uk-button-large(type="submit") Enviar 
-                        
+                                    button.uk-button.uk-button-large(type="submit") Enviar
 
-            
+
+
 
 </template>
 
@@ -82,7 +82,7 @@ export default {
                 timeout: 5000
             });*/
         }else{
-            this.$axios.post(`https://schooldigital.cl/api/auth/demoMailNewVersion`, {
+            this.$axios.post(`https://api.redcollege.net/api/auth/demoMailNewVersion`, {
                 datos: this.form
             })
             .then(response => {
@@ -114,7 +114,7 @@ export default {
             color: $soft-dark-color-accent;
             font-size: 1rem;
         }
-    }  
+    }
 
 
     .background-modal{
