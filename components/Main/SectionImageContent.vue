@@ -3,7 +3,7 @@
     section.uk-section(v-view.once="isInView", :style="{ 'background-color' : data.primary.color_de_fondo }")
         div(class="uk-container uk-container-expand-left")
             div(uk-grid, class="uk-flex uk-grid-large uk-flex-middle")
-                div(class="uk-width-3-5@m") 
+                div(class="uk-width-3-5@m")
                     div.uk-container-item-padding-remove-left(ref="containerAnimation")
                         .uk-inline.image-parallax-container
                             img(:src="$prismic.asLink(data.primary.imagen_referencial)", :alt="data.primary.imagen_referencial.alt")
@@ -12,7 +12,7 @@
                     div
                         div.animate-content(ref="animateContent")
                             h2.uk-heading-small(class="uk-width-xlarge@m") {{ $prismic.asText(data.primary.encabezado) }}
-                            p(class="uk-width-xlarge@m")    {{ $prismic.asText(data.primary.contenido) }}
+                            div(class="uk-width-xlarge@m", v-html="$prismic.asHtml(data.primary.contenido)")
                             nuxt-link.cta-button.uk-button.uk-button-large.uk-margin-bottom(to="/contacto") Agenda Tu Hora
 
 
@@ -57,11 +57,11 @@ export default {
             opacity: 1,
             scale: 1,
             stagger: {
-                amount: .6, 
+                amount: .6,
                 },
             }, .6)
 
-            
+
 
              this.animationTl.to(foregroundContainer,{
             duration: .6,
@@ -72,7 +72,7 @@ export default {
             },
             x: '0%',
             stagger: {
-                amount: .6, 
+                amount: .6,
                 },
             }, 0)
 
@@ -84,7 +84,7 @@ export default {
             },
             x: '110%',
             stagger: {
-                amount: .6, 
+                amount: .6,
                 },
             }, .6)
 
@@ -98,7 +98,7 @@ export default {
                 opacity: 1,
                 y: '0%',
                 stagger: {
-                    amount: .7, 
+                    amount: .7,
                 },
             }, .7)
 

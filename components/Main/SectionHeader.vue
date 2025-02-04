@@ -3,9 +3,9 @@
     section.uk-section.uk-section-small(v-view.once="isInView", :style="{ 'background-color' : data.primary.color_de_fondo }")
         div.uk-container
             div.uk-text-center(ref="animateImage")
-                h2.uk-margin-remove.animate-image {{ $prismic.asText(data.primary.encabezado) }}
+                h2.uk-margin-bottom.animate-image {{ $prismic.asText(data.primary.encabezado) }}
                 h4.animate-image(class="uk-width-4-5@m uk-margin-auto uk-margin-remove-top") {{ data.primary.titulo }}
-                div.animate-image(class="uk-width-xlarge@m uk-margin-auto uk-margin-remove-top") 
+                div.animate-image(class="uk-width-xlarge@m uk-margin-auto uk-margin-remove-top")
                     div(v-html="$prismic.asHtml(data.primary.contenido)")
                 nuxt-link(:to="$prismic.asLink(data.primary.link)", v-if="data.primary.link.id").animate-image.uk-display-inline-block.link-button {{ data.primary.texto_del_link }} #[span(uk-icon="icon: chevron-right; ratio: 0.8;")]
 
@@ -45,7 +45,7 @@ export default {
                 opacity: 1,
                 y: '0%',
                 stagger: {
-                    amount: .7, 
+                    amount: .7,
                 },
             }, .5)
         },
