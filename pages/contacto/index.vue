@@ -71,6 +71,13 @@ export default {
         )
         .join('&');
     },
+    resetForm() {
+      this.form.nombre = '';
+      this.form.email = '';
+      this.form.mensaje = '';
+      this.form.telefono = '';
+      this.form.prevision = '';
+    },
     handleSubmit() {
 
         if(this.form.prevision == ''){
@@ -87,6 +94,7 @@ export default {
             })
             .then(response => {
                 alert('Se Envió Su Mensaje. Nos contactaremos a la brevedad.')
+                this.resetForm();
                 //UIkit.notification({message: '', pos: 'top-center'})
             })
         }
